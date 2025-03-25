@@ -96,7 +96,7 @@ export default function FullScreenQRScanner() {
           alt="Overlay" 
           layout="fill"
           objectFit="cover"
-          className="opacity-50"  // ปรับความโปร่งใสตามต้องการ
+          className="opacity-80"  // ปรับความโปร่งใสตามต้องการ
         />
       </div>
 
