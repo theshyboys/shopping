@@ -1,5 +1,6 @@
 //import Image from "next/image";
-import ReceiptPage from "./receipt";
+import ReceiptPage from "./home/page";
+import SplashScreen from "./splash";
 
 /*
 echo "# shopping" >> README.md
@@ -25,7 +26,7 @@ git push -u origin main
 export default function Home() {
   return (
     <div>
-      <ReceiptPage/>
+      <SplashScreen/>
     </div>
   );
 }

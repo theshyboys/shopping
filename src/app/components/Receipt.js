@@ -2,39 +2,41 @@ import React from "react";
 
 const Receipt = ({ order }) => {
   return (
-    <div
-      className="flex flex-col items-center  min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/BG.png')" }}
-    >
-        
-        <div className="p-8 flex items-center justify-center ">
-          <img src="/images/thk.png" alt="Thk" className="w-70" />
-        </div>
-        
-      <div id="receipt" className="mr-1  p-2 border w-[350px] bg-white bg-opacity-20 rounded-lg">
+    <div className="p-4">
         <div className="p-4 flex items-center justify-center ">
           <img src="/images/LOGO.png" alt="Logo" className="w-19 " />
         </div>
 
-        <p>
-          <b>DATE </b> {order.date}
-        </p>
-        <p>
-          <b>LOC </b> SINGHA THA MUSEUM YASOTHON{" "}
-        </p>
-        <hr></hr>
+        <div className="flex justify-between">
+            <span>DATE : </span>
+            <span>MAR 25TH,2025 9:00</span>
+        </div>
+
+        <div className="flex justify-between">
+            <span>LOC : </span>
+            <span>SINGHA THA MUSEUM</span>
+        </div>
+        <p className="text-right">YASOTHON</p>
+
+        <hr style={{ height: "1px", backgroundColor: "rgb(240, 86, 86)", border: "none" }} />
         <ul>
           {order.items.map((item, index) => (
             <li key={index}>
-              <p>{item.name_th} {item.zone_th}</p>
-              <p>{item.name_en} {item.zone_en}       {item.status}</p>
+              <p>{item.name_th}</p>
+              <div className="flex justify-between">
+                <span>{item.name_en} </span>
+                <span>{item.status}</span>
+              </div>
+              <p>ZONE {item.zone_en} </p>
             </li>
           ))}
         </ul>
-        <hr></hr>
-        <p>
-          <b>ITEM COUNT </b> {1}
-        </p>
+        <hr style={{ height: "1px", backgroundColor: "rgb(240, 86, 86)", border: "none" }} />
+
+        <div className="flex justify-between">
+            <span>ITEM COUNT : </span>
+            <span>5</span>
+        </div>
 
         <div className="p-4 flex items-center justify-center ">
           <img src="\images\THANK YOU FOR VISITING.png" alt="Logo" className="w-40 " />
@@ -46,7 +48,7 @@ const Receipt = ({ order }) => {
         <br/>
 
 
-      </div>
+      
       <br/>
       <br/>
       </div>
