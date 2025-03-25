@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import Receipt from "../components/Receipt";
+import { useRouter } from 'next/navigation';
 
 export default function ReceiptPage() {
   const receiptRef = useRef(null);
+  const router = useRouter();
 
   const order = {
     id: "ORD123456",
@@ -26,6 +28,11 @@ export default function ReceiptPage() {
       link.download = "receipt.png";
       link.click();
     }
+  };
+
+
+  const ScanPage = () =>{ 
+    router.push(`/scan`);
   };
 
   return (
@@ -55,7 +62,7 @@ export default function ReceiptPage() {
         </button>
 
         <button className="fixed bottom-10 right-22"
-            onClick={handleDownload}>
+            onClick={ScanPage}>
             <img
                 src="\images\BT-Scan Qr code.png"
                 alt="Click Me"
