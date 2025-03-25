@@ -32,11 +32,11 @@ export default function FullScreenQRScanner() {
           setScannedResult(decodedText);
           
           // นำทางไปยังหน้าถัดไปพร้อมส่ง QR Code
-          setTimeout(() => {
+        //  setTimeout(() => {
             //router.push(`/next-page?qr=${encodeURIComponent(decodedText)}`);
             router.push(`/home`);
 
-          }, 2000);
+         // }, 2000);
         }).catch((err) => {
           console.error("Error stopping the scan", err);
         });
