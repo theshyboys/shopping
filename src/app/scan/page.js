@@ -81,7 +81,7 @@ export default function FullScreenQRScanner() {
   }, [scanning, router]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black relative">
+    <div className="fixed  min-h-screen inset-0 z-50 bg-black relative">
       {/* พื้นที่แสดงวิดีโอการสแกนแบบเต็มหน้าจอ */}
       <div 
         id="full-screen-reader" 
