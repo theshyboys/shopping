@@ -3,7 +3,7 @@ import React from "react";
 const Receipt = ({ order }) => {
   return (
     <div
-      className="flex flex-col items-center p-1 min-h-screen bg-cover bg-center"
+      className="flex flex-col items-center  min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/images/BG.png')" }}
     >
         
@@ -11,7 +11,7 @@ const Receipt = ({ order }) => {
           <img src="/images/thk.png" alt="Thk" className="w-70" />
         </div>
         
-      <div id="receipt" className="p-6 border w-[380px] bg-white bg-opacity-20 rounded-lg">
+      <div id="receipt" className="mr-1  p-2 border w-[350px] bg-white bg-opacity-20 rounded-lg">
         <div className="p-4 flex items-center justify-center ">
           <img src="/images/LOGO.png" alt="Logo" className="w-19 " />
         </div>
@@ -43,9 +43,13 @@ const Receipt = ({ order }) => {
         <div className="p-4 flex items-center justify-center ">
           <img src="\images\Barcode.png" alt="Logo" className="w-80 " />
         </div>
+        <br/>
+
 
       </div>
-    </div>
+      <br/>
+      <br/>
+      </div>
   );
 };
 

@@ -15,68 +15,7 @@ export default function ReceiptPage() {
       { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
       { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
       { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-      { name_th: "เกลือ", zone_th: "เครื่องปรุงคู่ครัวเรือน", name_en:"Salt" , zone_en: "household condiment", status: "READ" },
-
+   
     ],
     total: 25,
   };
@@ -92,11 +31,13 @@ export default function ReceiptPage() {
   };
 
   return (
-    <div>
-        <div ref={receiptRef}>
+    <div className="min-h-screen items-center justify-center">
+       
+
+
+       <div ref={receiptRef}>
             <Receipt order={order} />
         </div>
-
 
         <button className="fixed bottom-10 left-22"
             onClick={handleDownload}>
@@ -114,9 +55,31 @@ export default function ReceiptPage() {
                 alt="Click Me"
                 className="w-24 hover:opacity-80 transition"
             />
-        </button>
+        </button> 
+
 
 
     </div>
   );
 }
+
+
+/**
+       <button className="fixed bottom-10 left-22"
+            onClick={handleDownload}>
+            <img
+                src="\images\BT-Save photo.png"
+                alt="Click Me"
+                className="w-24 hover:opacity-80 transition"
+            />
+        </button>
+
+        <button className="fixed bottom-10 right-22"
+            onClick={handleDownload}>
+            <img
+                src="\images\BT-Scan Qr code.png"
+                alt="Click Me"
+                className="w-24 hover:opacity-80 transition"
+            />
+        </button> 
+ */
