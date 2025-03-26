@@ -7,7 +7,7 @@ const Receipt = ({ order }) => {
           <img src="/images/LOGO.png" alt="Logo" className="w-19 " />
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between font-dbpenthaix-normal">
             <span>DATE : </span>
             <span>MAR 25TH,2025 9:00</span>
         </div>

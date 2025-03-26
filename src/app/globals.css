@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@font-face {
+  font-family: "DBPenThaiX";
+  src: url("/fonts/DB PenThai X/DB PenThai X Italic.ttf") format("truetype");
+  font-weight : italic;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DBPenThaiX";
+  src: url("/fonts/DB PenThai X/DB PenThai X Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DBPenThaiX";
+  src: url("/fonts/DB PenThai X/DB PenThai X Light.ttf") format("truetype");
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DBPenThaiX";
+  src: url("/fonts/DB PenThai X/DB PenThai X.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "DBPenThaiX", sans-serif;
+}
