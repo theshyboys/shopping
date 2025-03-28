@@ -34,7 +34,7 @@ export default function FullScreenQRScanner() {
           // นำทางไปยังหน้าถัดไปพร้อมส่ง QR Code
         //  setTimeout(() => {
             //router.push(`/next-page?qr=${encodeURIComponent(decodedText)}`);
-            router.push(`/home`);
+           // router.push(`/home`);
 
          // }, 2000);
         }).catch((err) => {
