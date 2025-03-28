@@ -31,8 +31,8 @@ export default function Home() {
   const router = useRouter();
   return (
     <div>
-      {/* <SplashScreen/> */}
-      {router.push(`/home`)}
+      <SplashScreen/> 
+      {/*router.push(`/home`)*/}
     </div>
   );
 }
