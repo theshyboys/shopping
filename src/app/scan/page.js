@@ -36,6 +36,7 @@ export default function FullScreenQRScanner() {
             //router.push(`/next-page?qr=${encodeURIComponent(decodedText)}`);
            // router.push(`/home`);
 
+           alert(decodedText);
          // }, 2000);
         }).catch((err) => {
           console.error("Error stopping the scan", err);
