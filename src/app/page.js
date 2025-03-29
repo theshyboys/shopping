@@ -5,6 +5,7 @@ import ReceiptPage from "./home/page";
 import SplashScreen from "./splash";
 import { useRouter } from 'next/navigation';
 
+import ClickMe from "./clickme/page";
 
 /*
 echo "# shopping" >> README.md
