@@ -25,6 +25,10 @@ git commit -m "first commit"
 git branch -M main
 git push -u origin main
 
+
+https://vercel.com/theshyboys-projects
+https://vercel.com/new?teamSlug=theshyboys-projects
+
 */
 
 

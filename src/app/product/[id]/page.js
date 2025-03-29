@@ -111,9 +111,9 @@ async function fetchProductById(id) {
         price: 99,
         description: '',
         category: 'ของฝาก',
-        image: '/assest/product.png',
-        content: '/assest/001.png',
-        icart: '/assest/product1.png',
+        image: '/assest/001-1.png',
+        content: '/assest/001-0.png',
+        icart: '/assest/001-2.png',
         sku: 'GRP05-5',
       },
     };
