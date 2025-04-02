@@ -34,7 +34,7 @@ export default function ProductPage({ params }) {
         setJdata(json);
         fetchProduct();
 
-        console.log(jdata);
+        
 
       }else{
         setProduct(null);
@@ -57,6 +57,7 @@ export default function ProductPage({ params }) {
         const data = await fetchProductById(id);
         setProduct(data);
         setLoading(false);
+        console.log(jdata);
       } catch (error) {
         console.error('Error fetching product:', error);
         setLoading(false);
