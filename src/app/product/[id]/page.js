@@ -20,6 +20,9 @@ export default function ProductPage({ params }) {
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
     let ss = false;
+
+    console.log(filePath);
+
     fetch(filePath)
     .then((res) => {
       setExists(res.ok);  
