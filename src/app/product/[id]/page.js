@@ -34,7 +34,7 @@ export default function ProductPage({ params }) {
         setJdata(json);
         fetchProduct();
 
-        console.log("Fetch Data Ok");
+        console.log(jdata);
 
       }else{
         setProduct(null);
