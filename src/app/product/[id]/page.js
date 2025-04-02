@@ -57,7 +57,7 @@ export default function ProductPage({ params }) {
         const data = await fetchProductById(id);
         setProduct(data);
         setLoading(false);
-        console.log(jdata);
+        console.log(data);
       } catch (error) {
         console.error('Error fetching product:', error);
         setLoading(false);
