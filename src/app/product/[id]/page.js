@@ -48,7 +48,7 @@ export default function ProductPage({ params }) {
       setLoading(false); 
     }); // ✅ จัดการ Error
 
-    console.log(:"Teera Yoosuk");
+    console.log("Teera Yoosuk");
 
      async function fetchProduct() {
       try {
