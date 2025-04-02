@@ -5,11 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import PDFGenerator from '../components/PDFGenerator';
+import ReceiptPage from '../receipt/page';
+import { useRouter } from 'next/navigation';
+
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-  
+  const router = useRouter();
+
   const subtotal = cart.reduce((total, item) => {
     return total + (item.price * item.quantity);
   }, 0);
@@ -18,10 +22,30 @@ export default function CartPage() {
   const total = subtotal + tax;
   
   const handleCheckout = () => {
-    setIsGeneratingPDF(true);
+    //setIsGeneratingPDF(true);
+    //<ReceiptPage/>
+
+
+    clearCart();
+
+    router.push('/receipt');
+
   };
   
   return (
+
+    <div>
+
+      <div className="flex">
+        <Link href="/" className="py-5 px-8 text-2xl font-bold text-blue-600">
+          <img src= {'/images/BT-Back.png'} className="h-4" />
+        </Link>
+
+        <span className="px-27 py-4 font-dbpenthaix-normal text-[24px]" >Cart</span>
+      </div>
+
+
+
     <div className="container mx-auto px-4 py-8"> 
       {cart.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-8 text-center">
@@ -36,28 +60,33 @@ export default function CartPage() {
               {cart.map((item) => (
                 <div key={item.id} className="flex border-b p-0">
                   <div className="flex items-center justify-center ">
-                    <img src={item.icart} />               
+                    <img src={'/product/'+item.id+'/2.png'} />
+                    
                   </div>                          
                 </div>
               ))}
           </div>
           
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-lg font-medium mb-4">Order Summary</h2>          
-              <div className="border-t pt-4 mt-4">             
+            <div className="bg-white rounded-lg shadow-md p-6">  
+
+              <div className="flex justify-between">
+                  <span className="font-dbpenthaix-normal text-[20px]" >จำนวนสินค้าทั้งหมด  </span>
+                  <span className="font-dbpenthaix-normal  text-[20px] text-[rgb(255, 0, 0)]">2</span>
+              </div>
+
+              <div className="flex justify-between">
+                  <span className="font-dbpenthaix-normal text-[16px]" >Quantity  </span>
+                  <span className="font-dbpenthaix-normal text-[16px] " >ชิ้น/piece</span>
+              </div>
+
+              <div className="pt-4 mt-4">             
                 <button 
                   onClick={handleCheckout}
-                  className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 mb-3"
+                  className="w-full text-white rounded-md "
                 >
-                  Checkout & Save as PDF
+                   <img src="\images\BT-Check out.png"   />
                 </button>
-                <Link 
-                  href="/" 
-                  className="block text-center w-full border border-gray-300 text-gray-700 py-3 rounded-md hover:bg-gray-50"
-                >
-                  Continue Shopping
-                </Link>
               </div>
             </div>
           </div>
@@ -76,6 +105,7 @@ export default function CartPage() {
           }}
         />
       )}
+    </div>
     </div>
   );
 }

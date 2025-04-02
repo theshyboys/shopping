@@ -9,7 +9,7 @@ export default function SplashScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       // เปลี่ยนไปยังหน้าหลัก (home) หลังจาก 3 วินาที
-      router.push('/clickme');
+      router.push('/scan');
  //     router.push('/home');
 
     }, 2000);

@@ -1,7 +1,7 @@
 "use client";
 
 //import Image from "next/image";
-import ReceiptPage from "./home/page";
+import ReceiptPage from "./receipt/page";
 import SplashScreen from "./splash";
 import { useRouter } from 'next/navigation';
 

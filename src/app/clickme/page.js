@@ -9,7 +9,7 @@ export default function ClickMe() {
         <div>
         
         <button  
-            onClick={() => router.push(`/product/product-123`)}
+            onClick={() => router.push(`/product/001`)}
             className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
             >
             <img

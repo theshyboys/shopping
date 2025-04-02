@@ -14,9 +14,34 @@ export default function ProductPage({ params }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const router = useRouter();
+  const [jdata, setJdata] = useState(null);
+  const [exists, setExists] = useState(null);
 
   useEffect(() => {
-    async function fetchProduct() {
+    let filePath = "/product/" + id + "/data.json";
+    let ss = false;
+    fetch(filePath)
+    .then((res) => {
+      setExists(res.ok);  
+      (res.ok)?ss=true:ss=false;
+      res.json();
+    }) // ✅ return JSON ที่ถูกต้อง
+    .then((json) => {
+      if(ss){
+        setJdata(json);
+        fetchProduct();
+      }else{
+        setProduct(null);
+        setLoading(false); 
+      }      
+    }) // ✅ อัปเดต state
+    .catch((error) => {
+      console.error("Error loading JSON:", error)
+      setProduct(null);
+      setLoading(false); 
+    }); // ✅ จัดการ Error
+
+     async function fetchProduct() {
       try {
         // In a real app, you'd fetch from an API using the ID from the QR code
         // For this example, we'll simulate an API call
@@ -29,7 +54,7 @@ export default function ProductPage({ params }) {
       }
     }
 
-    fetchProduct();
+    
   }, [id]);
 
   const handleAddToCart = () => {
@@ -56,7 +81,7 @@ export default function ProductPage({ params }) {
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-2xl font-bold mb-4">Product Not Found</h1>
         <p className="mb-6">The scanned QR code did not match any product in our database.</p>
-        <Link href="/" className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+        <Link href="/scan" className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
           Scan Another QR Code
         </Link>
       </div>
@@ -67,19 +92,30 @@ export default function ProductPage({ params }) {
 
   <div>
 
+    <div className="flex justify-between items-center">
+      <Link href="/" className="py-5 px-8 text-2xl font-bold text-blue-600">
+        <img src= {'/images/BT-Back.png'} className="h-4" />
+      </Link>
+      
+      <Link href="/cart" className="relative">
+        <div className="px-5 py-7">
+          <img src= {'/images/BT-Shopping.png'} className="h-6" />
+          {0 > 0 && (
+            <span className="absolute top-5 right-4 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              {5}
+            </span>
+          )}
+        </div>
 
-    <div className="max-h-screen overflow-y-scroll border-2 border-gray-300 p-2">
+      </Link>
+    </div>
 
-      <br/>
-      <br/>
-
+    <div className="max-h-screen overflow-y-scroll  border-gray-300 p-2">
       <div className="p-4 h-70  grid place-items-center">
-          <img src={product.image} alt={product.name} className="h-70" />
+          <img src= {'/product/'+product.id+'/0.png'} className="h-70" />
       </div> 
-      <img src={product.content} alt="Scrollable Image" className="w-full" />
+      <img src= {'/product/'+product.id+'/1.png'} className="w-full" />
     </div> 
-
-
     <button  
         onClick={handleAddToCart}
         className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
@@ -91,9 +127,6 @@ export default function ProductPage({ params }) {
     </button>
 
   </div>
-  
-
-   
   );
 }
 
@@ -102,22 +135,13 @@ export default function ProductPage({ params }) {
 async function fetchProductById(id) {
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 500));
-
     // Mock product database based on QR code values
     const products = {
-      'product-123': {
-        id: 'product-123',
-        name: 'ปลาส้มต้นตำรับ',
-        price: 99,
-        description: '',
-        category: 'ของฝาก',
-        image: '/assest/001-1.png',
-        content: '/assest/001-0.png',
-        icart: '/assest/001-2.png',
-        sku: 'GRP05-5',
+        '001' : {
+        id: id,
+        category: '',
       },
     };
-    
-    return products[id] || null;
+    return products['001'] || null;
   }
 
