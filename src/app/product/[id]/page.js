@@ -143,6 +143,10 @@ export default function ProductPage({ params }) {
 
 // Mock API function - in a real app, this would fetch from your backend
 async function fetchProductById(id) {
+
+  console.log("fetchProductById = ", id);
+
+
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 500));
     // Mock product database based on QR code values
