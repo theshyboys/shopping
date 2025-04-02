@@ -47,6 +47,8 @@ export default function ProductPage({ params }) {
       setLoading(false); 
     }); // ✅ จัดการ Error
 
+    console.log(:"Teera Yoosuk");
+
      async function fetchProduct() {
       try {
         // In a real app, you'd fetch from an API using the ID from the QR code
