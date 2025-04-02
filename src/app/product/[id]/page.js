@@ -39,6 +39,7 @@ export default function ProductPage({ params }) {
       }else{
         setProduct(null);
         setLoading(false); 
+        console.log("Fetch Data Fail");
       }      
     }) // ✅ อัปเดต state
     .catch((error) => {
