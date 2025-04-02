@@ -33,6 +33,9 @@ export default function ProductPage({ params }) {
       if(ss){
         setJdata(json);
         fetchProduct();
+
+        console.log("Fetch Data Ok");
+
       }else{
         setProduct(null);
         setLoading(false); 
