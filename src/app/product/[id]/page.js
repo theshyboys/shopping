@@ -152,6 +152,9 @@ async function fetchProductById(id) {
         category: '',
       },
     };
+
+    console.log("==> ",products['001']);
+
     return products['001'] || null;
   }
 
