@@ -13,11 +13,13 @@ export function CartProvider({ children }) {
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
+    console.log("1: " , cart);
   }, []);
   
   // Save cart to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('qrshop_cart', JSON.stringify(cart));
+    console.log("2: " , cart);
   }, [cart]);
   
   const addToCart = (product) => {

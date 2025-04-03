@@ -126,6 +126,10 @@ export default function ProductPage({ params }) {
       </div> 
       <img src= {'/product/'+product.id+'/1.png'} className="w-full" />
     </div> 
+
+
+
+
     <button  
         onClick={handleAddToCart}
         className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
@@ -135,6 +139,9 @@ export default function ProductPage({ params }) {
         alt="Click Me"
       />
     </button>
+
+
+
 
   </div>
   );
