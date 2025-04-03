@@ -35,17 +35,12 @@ export default function CartPage() {
   return (
 
     <div>
-
       <div className="flex">
-        <Link href="/" className="py-5 px-8 text-2xl font-bold text-blue-600">
+        <Link href="javascript:history.back()" className="py-5 px-8 text-2xl font-bold text-blue-600">
           <img src= {'/images/BT-Back.png'} className="h-4" />
         </Link>
-
         <span className="px-27 py-4 font-dbpenthaix-normal text-[24px]" >Cart</span>
       </div>
-
-
-
     <div className="container mx-auto px-4 py-8"> 
       {cart.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-8 text-center">

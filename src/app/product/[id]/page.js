@@ -10,9 +10,12 @@ export default function ProductPage({ params }) {
   const unwrappedParams = use(params); // unwrap the Promise
   const id = unwrappedParams.id;
   const [product, setProduct] = useState(null);
+  const [exist, setExist] = useState(false);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { addToCart} = useCart();
+  const { isExist} = useCart();
+
   const router = useRouter();
   const [jdata, setJdata] = useState(null);
   const [exists, setExists] = useState(null);
@@ -58,6 +61,10 @@ export default function ProductPage({ params }) {
         setProduct(data);
         setLoading(false);
         console.log(data);
+        
+        setExist(isExist(data));
+        console.log("Exist is ",isExist(data));
+        
       } catch (error) {
         console.error('Error fetching product:', error);
         setLoading(false);
@@ -103,7 +110,7 @@ export default function ProductPage({ params }) {
   <div>
 
     <div className="flex justify-between items-center">
-      <Link href="/" className="py-5 px-8 text-2xl font-bold text-blue-600">
+      <Link href="/scan" className="py-5 px-8 text-2xl font-bold text-blue-600">
         <img src= {'/images/BT-Back.png'} className="h-4" />
       </Link>
       
@@ -128,8 +135,7 @@ export default function ProductPage({ params }) {
     </div> 
 
 
-
-
+    {(!exist)?
     <button  
         onClick={handleAddToCart}
         className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
@@ -139,8 +145,16 @@ export default function ProductPage({ params }) {
         alt="Click Me"
       />
     </button>
-
-
+    :
+    <button  
+        className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
+    >
+        <img
+        src="\images\BT-Already in cart.png"
+        alt="Click Me"
+      />
+    </button>
+    }
 
 
   </div>
@@ -165,6 +179,7 @@ async function fetchProductById(id) {
     };
 
     console.log("==> ",products['001']);
+    
 
     return products['001'] || null;
   }

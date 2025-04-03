@@ -38,6 +38,18 @@ export function CartProvider({ children }) {
     });
   };
   
+
+  const isExist = (product) => {
+    const savedCart = localStorage.getItem('qrshop_cart');
+    const jsc = (JSON.parse(savedCart));
+      const existingItem = jsc.find(item => item.id === product.id);
+      if (existingItem) {
+        return (true);
+      }      
+      return false;  
+  };
+
+
   const removeFromCart = (productId) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
@@ -60,7 +72,8 @@ export function CartProvider({ children }) {
       addToCart, 
       removeFromCart, 
       updateQuantity,
-      clearCart
+      clearCart,
+      isExist
     }}>
       {children}
     </CartContext.Provider>
