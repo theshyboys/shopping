@@ -22,14 +22,8 @@ export default function CartPage() {
   const total = subtotal + tax;
   
   const handleCheckout = () => {
-    //setIsGeneratingPDF(true);
-    //<ReceiptPage/>
-
-
-    clearCart();
-
     router.push('/receipt');
-
+    clearCart();
   };
   
   return (

@@ -29,6 +29,9 @@ git push -u origin main
 https://vercel.com/theshyboys-projects
 https://vercel.com/new?teamSlug=theshyboys-projects
 
+
+https://th.qr-code-generator.com/
+
 */
 
 
@@ -37,7 +40,6 @@ export default function Home() {
   return (
     <div>
       <SplashScreen/> 
-      {/*router.push(`/home`)*/}
     </div>
   );
 }
