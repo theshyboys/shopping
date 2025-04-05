@@ -15,64 +15,29 @@ export default function ProductPage({ params }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart} = useCart();
   const { isExist} = useCart();
-
   const router = useRouter();
-  const [jdata, setJdata] = useState(null);
   const [exists, setExists] = useState(null);
 
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
-    let ss = false;
-
-    console.log(filePath);
-
     fetch(filePath)
-    .then((res) => {
-      setExists(res.ok);  
-      (res.ok)?ss=true:ss=false;
-      res.json();
-    }) // ✅ return JSON ที่ถูกต้อง
-    .then((json) => {
-      if(ss){
-        setJdata(json);
-        fetchProduct();
-
-        
-
-      }else{
-        setProduct(null);
-        setLoading(false); 
-        console.log("Fetch Data Fail");
-      }      
-    }) // ✅ อัปเดต state
-    .catch((error) => {
-      console.error("Error loading JSON:", error)
-      setProduct(null);
-      setLoading(false); 
-    }); // ✅ จัดการ Error
-
-    console.log("Teera Yoosuk");
-
-     async function fetchProduct() {
-      try {
-        // In a real app, you'd fetch from an API using the ID from the QR code
-        // For this example, we'll simulate an API call
-        const data = await fetchProductById(id);
-        setProduct(data);
-        setLoading(false);
-        console.log(data);
-        
-        setExist(isExist(data));
-        console.log("Exist is ",isExist(data));
-        
-      } catch (error) {
-        console.error('Error fetching product:', error);
-        setLoading(false);
-      }
-    }
-
-    
+        .then((res) => res.json())
+        .then((json) => {
+            json.id = id;
+            setProduct(json);
+            setLoading(false);
+            setExist(isExist(json));
+            console.log("Exist is ",exist);
+            console.log("📄 JSON Data:", json);
+        })
+        .catch((err) => {
+          console.error("❌ Error loading JSON:", err);
+          setProduct(null);
+          setLoading(false); 
+        });
   }, [id]);
+
+
 
   const handleAddToCart = () => {
     if (product) {
@@ -107,7 +72,11 @@ export default function ProductPage({ params }) {
 
   return (
 
-  <div>
+  <div >
+        <div
+        className=" min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/BG_Product.png')" }}
+        >
 
     <div className="flex justify-between items-center">
       <Link href="/scan" className="py-5 px-8 text-2xl font-bold text-blue-600">
@@ -158,29 +127,8 @@ export default function ProductPage({ params }) {
 
 
   </div>
-  );
+  </div>
+);
 }
 
-
-// Mock API function - in a real app, this would fetch from your backend
-async function fetchProductById(id) {
-
-  console.log("fetchProductById = ", id);
-
-
-    // Simulate network delay
-  //  await new Promise(resolve => setTimeout(resolve, 500));
-    // Mock product database based on QR code values
-    const products = {
-        '001' : {
-        id: id,
-        category: '',
-      },
-    };
-
-    console.log("==> ",products['001']);
-    
-
-    return products['001'] || null;
-  }
 

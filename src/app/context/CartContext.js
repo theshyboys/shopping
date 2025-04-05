@@ -22,6 +22,14 @@ export function CartProvider({ children }) {
     console.log("2: " , cart);
   }, [cart]);
   
+  const loadCart = () =>{
+    const savedCart = localStorage.getItem('qrshop_cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }
+
+
   const addToCart = (product) => {
     setCart(prevCart => {
       const existingItem = prevCart.find(item => item.id === product.id);
@@ -73,7 +81,8 @@ export function CartProvider({ children }) {
       removeFromCart, 
       updateQuantity,
       clearCart,
-      isExist
+      isExist,
+      loadCart
     }}>
       {children}
     </CartContext.Provider>

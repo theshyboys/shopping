@@ -23,12 +23,19 @@ export default function CartPage() {
   
   const handleCheckout = () => {
     router.push('/receipt');
-    clearCart();
+    //clearCart();
   };
   
   return (
 
     <div>
+<div
+        className=" min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/05_Cart.png')" }}
+        >
+
+
+
       <div className="flex">
         <Link href="javascript:history.back()" className="py-5 px-8 text-2xl font-bold text-blue-600">
           <img src= {'/images/BT-Back.png'} className="h-4" />
@@ -46,6 +53,8 @@ export default function CartPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
+
+
               {cart.map((item) => (
                 <div key={item.id} className="flex border-b p-0">
                   <div className="flex items-center justify-center ">
@@ -54,6 +63,9 @@ export default function CartPage() {
                   </div>                          
                 </div>
               ))}
+
+
+
           </div>
           
           <div className="lg:col-span-1">
@@ -89,11 +101,12 @@ export default function CartPage() {
           tax={tax} 
           total={total} 
           onComplete={() => {
-            setIsGeneratingPDF(false);
-            clearCart();
+            //setIsGeneratingPDF(false);
+            //clearCart();
           }}
         />
       )}
+    </div>
     </div>
     </div>
   );

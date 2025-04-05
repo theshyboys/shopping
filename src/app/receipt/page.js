@@ -4,21 +4,15 @@ import { useRef } from "react";
 import html2canvas from "html2canvas";
 import Receipt from "../components/Receipt";
 import { useRouter } from 'next/navigation';
+import { useCart } from '../context/CartContext';
+
 
 export default function ReceiptPage() {
-  const receiptRef = useRef(null);
+  const receiptRef =  useRef(null);
   const router = useRouter();
+  const {cart,  clearCart, loadCart } = useCart();
 
-  const order = {
-    id: "ORD123456",
-    date: "2025-03-24",
-    items: [
-      { name_th: "เกลือ เครื่องปรุงคู่ครัวเรือน", zone_th: "ห้วงวิถีชีวิต", name_en:"SALT ,A HOUSEHOLD CONDIMENT" , zone_en: "THE TAPETRY OF LIFE", status: "READ" },
 
-   
-    ],
-    total: 25,
-  };
 
   const handleDownload = async () => {
     if (receiptRef.current) {
@@ -27,18 +21,22 @@ export default function ReceiptPage() {
       link.href = canvas.toDataURL("image/png");
       link.download = "receipt.png";
       link.click();
+
+      //console.log(receiptRef.current);
     }
+    //clearCart();
+    console.log("Clear cart");
   };
 
 
   const ScanPage = () =>{ 
     router.push(`/scan`);
+    console.log("Clear cart");
+    clearCart();
   };
 
   return (
     <div className="min-h-screen items-center justify-center">
-       
-
        <div
         className="flex flex-col items-center  min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/BG.png')" }}
@@ -48,10 +46,11 @@ export default function ReceiptPage() {
             </div>
             <div id="receipt" className="border w-[350px] bg-white bg-opacity-20 rounded-lg">
             <div ref={receiptRef}>
-                <Receipt order={order} />
+                <Receipt order={cart} />
             </div>
             </div>
         </div>
+
         <button className="fixed bottom-10 left-22"
             onClick={handleDownload}>
             <img
@@ -76,23 +75,3 @@ export default function ReceiptPage() {
   );
 }
 
-
-/**
-       <button className="fixed bottom-10 left-22"
-            onClick={handleDownload}>
-            <img
-                src="\images\BT-Save photo.png"
-                alt="Click Me"
-                className="w-24 hover:opacity-80 transition"
-            />
-        </button>
-
-        <button className="fixed bottom-10 right-22"
-            onClick={handleDownload}>
-            <img
-                src="\images\BT-Scan Qr code.png"
-                alt="Click Me"
-                className="w-24 hover:opacity-80 transition"
-            />
-        </button> 
- */

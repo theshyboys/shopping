@@ -15,8 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <CartProvider>
-          <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* <Header />            */}
+          <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
               {children}
             </main>         

@@ -2,29 +2,44 @@ import React from "react";
 
 const Receipt = ({ order }) => {
   return (
-    <div className="p-4 font-DB-PenThai-X text-black">
+    <div>
+
+
+    <div className="p-4 font-dbpenthaix-normal text-black" >
+        
+
+
+
+
         <div className="p-4 flex items-center justify-center ">
           <img src="/images/LOGO.png" alt="Logo" className="w-19 " />
         </div>
-        <div className="flex justify-between ">
+
+
+
+        <div className="flex justify-between text-[14px]">
             <span>DATE : </span>
             <span>MAR 25TH,2025 9:00</span>
         </div>
 
-        <div className="flex justify-between ">
+
+
+        <div className="flex justify-between text-[14px]">
             <span>LOC : </span>
             <span>SINGHA THA MUSEUM</span>
         </div>
 
-        <p className="text-right">YASOTHON</p>
+
+        <p className="text-right text-[14px]">YASOTHON</p>
 
         <hr style={{ height: "1px", backgroundColor: "rgb(240, 86, 86)", border: "none" }} />
-        <ul>
 
+
+        <ul>
         {order.map((item) => (
             <li key={item.id}>
               <p>{item.name_th}</p>
-              <div className="flex justify-between ">
+              <div className="flex justify-between text-[14px]">
                 <span>{item.name_en} </span>
                 <span>{item.status}</span>
               </div>
@@ -33,9 +48,10 @@ const Receipt = ({ order }) => {
           ))}
         </ul>
 
+
         <hr style={{ height: "1px", backgroundColor: "rgb(240, 86, 86)", border: "none" }} />
 
-        <div className="flex justify-between ">
+        <div className="flex justify-between text-[14px] ">
             <span>ITEM COUNT : </span>
             <span>5</span>
         </div>
@@ -47,12 +63,22 @@ const Receipt = ({ order }) => {
         <div className="p-4 flex items-center justify-center ">
           <img src="\images\Barcode.png" alt="Logo" className="w-80 " />
         </div>
+
+
+
+
         <br/>
       <br/>
       <br/>
+
+      </div>
       </div>
   );
 };
 
 export default Receipt;
 
+/*
+className="p-4 font-dbpenthaix-normal text-gray-600"
+
+*/
