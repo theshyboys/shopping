@@ -41,7 +41,6 @@ const Receipt = (props) => {
         </ul>
 
         <hr style={{ height: "1px", backgroundColor: "rgb(240, 86, 86)", border: "none" }} />
-        <br/>
         <div className="flex justify-between ">
             <span>ITEM COUNT : </span>
             <span>{props.order.length}</span>
@@ -54,7 +53,7 @@ const Receipt = (props) => {
         <div className="p-1 flex items-center justify-center ">
            <h2>THANK YOU FOR VISITING</h2>       
         </div>
-        
+        <br/>
 
         <div className="p-1 flex items-center justify-center ">
           <img src="\images\QRLINK.png" alt="Logo" className="w-50 " />
