@@ -28,7 +28,7 @@ export default function CartPage() {
   
   return (
 
-    <div>
+    <div className="font-DB-PenThai-X text-black">
 <div
         className=" min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/05_Cart.png')" }}
@@ -73,7 +73,7 @@ export default function CartPage() {
 
               <div className="flex justify-between">
                   <span className="font-dbpenthaix-normal text-[20px]" >จำนวนสินค้าทั้งหมด  </span>
-                  <span className="font-dbpenthaix-normal  text-[20px] text-[rgb(255, 0, 0)]">2</span>
+                  <span className="font-dbpenthaix-normal  text-[20px] text-[rgb(255, 0, 0)]">{cart.length}</span>
               </div>
 
               <div className="flex justify-between">
