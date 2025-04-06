@@ -67,6 +67,15 @@ const Receipt = (props) => {
       <p>สินค้าจาก SINGHA THA ONLINE</p>
       <p>#shoppingวันวานจากสิงห์ท่า #singhathamuseum</p>
 
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
       </div>
   );
 };
