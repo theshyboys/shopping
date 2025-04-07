@@ -3,7 +3,7 @@
 //import Image from "next/image";
 import ReceiptPage from "./receipt/page";
 import SplashScreen from "./splash";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 import ClickMe from "./clickme/page";
 
@@ -38,12 +38,11 @@ https://th.qr-code-generator.com/
 
 */
 
-
 export default function Home() {
   const router = useRouter();
   return (
     <div>
-      <SplashScreen/> 
+      <SplashScreen />
     </div>
   );
 }
