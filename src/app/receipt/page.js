@@ -18,6 +18,11 @@ export default function ReceiptPage() {
 
 
   const generatePDF = async () => {
+
+    const now = new Date();
+    const tt = format(now, 'yyyyMMddHHmmss');
+
+
     const imagesData = await Promise.all(cart.map(loadImageAsCanvas));
     // คำนวณความสูงรวมของ PDF
     const pdfWidth = 210; // mm (A4 width)
@@ -46,7 +51,7 @@ export default function ReceiptPage() {
       y += img.height;
     }
 
-    const name = "PRODUCT " + time + ".pdf";
+    const name = tt + ".pdf";
     pdf.save(name);
    // pdf.save('long-images.pdf');
   };
