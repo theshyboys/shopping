@@ -95,7 +95,7 @@ export default function ReceiptPage() {
     const d = format(now, "dd");
     const dd = getOrdinal(Number(d));
     const mon = format(now, "MM");
-    const ms = monthsShort[Number(mon)];
+    const ms = monthsShort[Number(mon) - 1];
     const formatted = ms + " " + dd + format(now, ",yyyy HH:mm");
     setTime(formatted);
 
