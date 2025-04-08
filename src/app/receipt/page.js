@@ -12,17 +12,16 @@ export default function ReceiptPage() {
   const receiptRef = useRef(null);
   const router = useRouter();
   const { cart, clearCart, loadCart } = useCart();
-
   const [time, setTime] = useState("");
+  const [data, setData] = useState([]);
 
-
-
-  const generatePDF = async () => {
-
+  function getTimeNow () {
     const now = new Date();
     const tt = format(now, 'yyyyMMddHHmmss');
+    return tt;
+  }
 
-
+  const generatePDF = async () => {
     const imagesData = await Promise.all(cart.map(loadImageAsCanvas));
     // คำนวณความสูงรวมของ PDF
     const pdfWidth = 210; // mm (A4 width)
@@ -51,7 +50,7 @@ export default function ReceiptPage() {
       y += img.height;
     }
 
-    const name = tt + ".pdf";
+    const name = getTimeNow() + ".pdf";
     pdf.save(name);
    // pdf.save('long-images.pdf');
   };
@@ -76,6 +75,7 @@ export default function ReceiptPage() {
 
 
   useEffect(() => {
+    setData(cart);
     const now = new Date();
     // const formatted = format(now, 'yyyy-MM-dd HH:mm:ss');
     const monthsShort = [
@@ -100,36 +100,39 @@ export default function ReceiptPage() {
     setTime(formatted);
 
 
+      const timer = setTimeout(() => {
+        // เปลี่ยนไปยังหน้าหลัก (home) หลังจาก 3 วินาที
+        handleDownload();
+      }, 1000);
+
+      // ล้างการตั้งเวลาเมื่อคอมโพเนนต์ถูกถอด
+      return () => clearTimeout(timer);
+
   }, []);
 
 
-  let flag = false;
-
-  useEffect(() => {
-    if(!flag){
-      flag = true;    
-      //generatePDF();
-    }
-  }, [cart]);
-
+ 
   const handleDownload = async () => {
-    if (receiptRef.current) {
+
+//    console.log("data.length ", data.length);
+
+    if ((receiptRef.current) && (data.length > 0)) {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
-      link.download = "SINGHATHASHOP " + time + ".png";
+      link.download = "SINGHATHASHOP " + getTimeNow() + ".png";
       link.click();
-
-      //console.log(receiptRef.current);
+      generatePDF();
     }
+    //router.push(`/scan`);
     clearCart();
-    console.log("Clear cart");
+    //console.log("Clear cart");
   };
 
   const ScanPage = () => {
     router.push(`/scan`);
-    console.log("Clear cart");
-    clearCart();
+    //console.log("Clear cart");
+    //clearCart();
   };
 
   function getOrdinal(n) {
@@ -152,20 +155,14 @@ export default function ReceiptPage() {
           className="border w-[350px] bg-white bg-opacity-20 rounded-lg"
         >
           <div ref={receiptRef}>
-            <Receipt order={cart} time={time} />
+            <Receipt order={data} time={time} />
           </div>
         </div>
       </div>
-
-      <button className="fixed bottom-10 left-22" onClick={handleDownload}>
-        <img
-          src="\images\BT-Save photo.png"
-          alt="Click Me"
-          className="w-24 hover:opacity-80 transition"
-        />
-      </button>
-
-      <button className="fixed bottom-10 right-22" onClick={ScanPage}>
+      <button 
+        className="fixed bottom-2 left-1/2 transform -translate-x-1/2  "
+        onClick={ScanPage}
+      >
         <img
           src="\images\BT-Scan Qr code.png"
           alt="Click Me"

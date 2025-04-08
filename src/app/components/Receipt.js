@@ -18,15 +18,7 @@ const Receipt = (props) => {
       </div>
 
       <p className="text-right">YASOTHON</p>
-      <br />
-      <hr
-        style={{
-          height: "1px",
-          backgroundColor: "rgb(240, 86, 86)",
-          border: "none",
-        }}
-      />
-      <br />
+      <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
       <ul>
         {props.order.map((item) => (
           <li key={item.id}>
@@ -35,42 +27,28 @@ const Receipt = (props) => {
               <span>{item.name_en} </span>
               <span>{item.status}</span>
             </div>
-            <p>
+            <p className="pb-2">
               ZONE {item.zone_th} : {item.zone_en}{" "}
             </p>
-            <br />
           </li>
         ))}
       </ul>
 
-      <hr
-        style={{
-          height: "1px",
-          backgroundColor: "rgb(240, 86, 86)",
-          border: "none",
-        }}
-      />
+      <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
+
       <div className="flex justify-between ">
         <span>ITEM COUNT : </span>
         <span>{props.order.length}</span>
       </div>
 
-      <br />
-      <hr
-        style={{
-          height: "1px",
-          backgroundColor: "rgb(240, 86, 86)",
-          border: "none",
-        }}
-      />
-      <br />
+      <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
 
-      <div className="p-1 flex items-center justify-center ">
+      <div className="pt-4 flex items-center justify-center ">
         <h2>THANK YOU FOR VISITING</h2>
       </div>
       <br />
 
-      <div className="p-1 flex items-center justify-center ">
+      <div className=" flex items-center justify-center ">
         <img src="\images\QRLINK.png" alt="Logo" className="w-50 " />
       </div>
 
