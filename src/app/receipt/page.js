@@ -116,7 +116,7 @@ export default function ReceiptPage() {
 
 //    console.log("data.length ", data.length);
 
-    if ((receiptRef.current) && (data.length > 0)) {
+    if (receiptRef.current) {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
