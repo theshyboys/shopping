@@ -6,11 +6,14 @@ import { useCart } from "../../context/CartContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function ProductPage({ params }) {
+//import { useRouter } from 'next/router';
+
+export default function ProductPage({params}) {
   const unwrappedParams = use(params); // unwrap the Promise
   const id = unwrappedParams.id;
 
-  
+
+
   const [product, setProduct] = useState(null);
   const [exist, setExist] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -20,6 +23,8 @@ export default function ProductPage({ params }) {
   const router = useRouter();
   const [exists, setExists] = useState(null);
 
+  //const { id } = router.query;
+  
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
 
