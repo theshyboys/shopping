@@ -20,6 +20,9 @@ export default function ProductPage({ params }) {
 
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
+
+    console.log("fetch data from ", filePath);
+
     fetch(filePath)
       .then((res) => res.json())
       .then((json) => {
