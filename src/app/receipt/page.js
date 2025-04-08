@@ -23,7 +23,7 @@ export default function ReceiptPage() {
 
   const generatePDF = async () => {
     const imagesData = await Promise.all(cart.map(loadImageAsCanvas));
-    // คำนวณความสูงรวมของ PDF
+        // คำนวณความสูงรวมของ PDF
     const pdfWidth = 210; // mm (A4 width)
     let totalHeight = 0;
     const images = [];
@@ -67,12 +67,19 @@ export default function ReceiptPage() {
         ctx.drawImage(img, 0, 0);
         resolve(canvas);
       };
-      img.src = "/product/" + url.id + "/detail.png";//url;
+      img.src = "/product/" + url.id + "/detail.png";
     });
   };
 
 
-
+  const saveImage = (url) => {
+    const link = document.createElement('a');
+    link.href = "/product/" + url.id + "/detail.png"; // ต้องเป็น path จาก public
+    link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
+    //document.body.appendChild(link);
+    link.click();
+    //document.body.removeChild(link);
+  };
 
   useEffect(() => {
     setData(cart);
@@ -120,9 +127,10 @@ export default function ReceiptPage() {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
-      link.download = "SINGHATHASHOP " + getTimeNow() + ".png";
+      link.download = "Receipt-" + getTimeNow() + ".png";
       link.click();
-      generatePDF();
+      //generatePDF();
+      cart.map(saveImage);
     }
     //router.push(`/scan`);
     clearCart();
