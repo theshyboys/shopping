@@ -95,10 +95,10 @@ export default function ProductPage({ params }) {
         </div>
 
         <div className="max-h-screen overflow-y-scroll  border-gray-300 p-2">
-          <div className="p-4 h-70  grid place-items-center">
+          {/* <div className="p-4 h-70  grid place-items-center">
             <img src={"/product/" + product.id + "/0.png"} className="h-70" />
-          </div>
-          <img src={"/product/" + product.id + "/1.png"} className="w-full" />
+          </div> */}
+          <img src={"/product/" + product.id + "/detail.png"} className="w-full" />
         </div>
 
         {!exist ? (

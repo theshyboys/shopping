@@ -60,7 +60,7 @@ export default function CartPage() {
                 {cart.map((item) => (
                   <div key={item.id} className="flex  p-0">
                     <div className="flex items-center justify-center ">
-                      <img src={'/product/'+item.id+'/2.png'} />
+                      <img src={'/product/'+item.id+'/cart.png'} />
                       
                     </div>                          
                   </div>

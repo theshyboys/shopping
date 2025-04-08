@@ -68,7 +68,7 @@ export default function ReceiptPage() {
         ctx.drawImage(img, 0, 0);
         resolve(canvas);
       };
-      img.src = "/product/" + url.id + "/1.png";//url;
+      img.src = "/product/" + url.id + "/detail.png";//url;
     });
   };
 
@@ -108,7 +108,7 @@ export default function ReceiptPage() {
   useEffect(() => {
     if(!flag){
       flag = true;    
-      generatePDF();
+      //generatePDF();
     }
   }, [cart]);
 
