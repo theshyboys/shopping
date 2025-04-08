@@ -99,12 +99,10 @@ export default function ProductPage({ params }) {
           </Link>
         </div>
 
-        <div className="max-h-screen overflow-y-scroll  border-gray-300 p-2">
-          {/* <div className="p-4 h-70  grid place-items-center">
-            <img src={"/product/" + product.id + "/0.png"} className="h-70" />
-          </div> */}
+        <div className="max-h-screen overflow-y-scroll pb-15 border-gray-300 p-2">
           <img src={"/product/" + product.id + "/detail.png"} className="w-full" />
         </div>
+
 
         {!exist ? (
           <button
