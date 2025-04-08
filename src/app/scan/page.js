@@ -102,8 +102,6 @@ export default function FullScreenQRScanner() {
           objectFit="cover"
           className="opacity-90" // ปรับความโปร่งใสตามต้องการ
         />
-
-        <h1>{uCount}</h1>
       </div>
     </div>
   );
