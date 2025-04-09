@@ -14,7 +14,7 @@ export default function ProductPage({ params }) {
   const [exist, setExist] = useState(false);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { addToCart ,cart} = useCart();
   const { isExist } = useCart();
   const router = useRouter();
   const [exists, setExists] = useState(null);
@@ -30,7 +30,12 @@ export default function ProductPage({ params }) {
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
 
-    console.log("fetch data from ", filePath);
+    //console.log("fetch data from ", filePath);
+
+    const width = window.screen.width;
+    const height = window.screen.height;
+    
+    console.log("Screen resolution:", width + " x " + height);
 
     fetch(filePath)
       .then((res) => res.json())
@@ -61,9 +66,9 @@ export default function ProductPage({ params }) {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-        <p className="mt-4">Loading product information...</p>
+      <div className="container mx-auto px-4 py-16 text-center bg-white min-h-screen bg-cover bg-center">
+        <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-blue-600 mx-auto"></div>
+        <p className="mt-4 text-red-500">Loading product information...</p>
       </div>
     );
   }
@@ -85,6 +90,8 @@ export default function ProductPage({ params }) {
     );
   }
 
+  const cartItemsCount = cart.reduce((count, item) => count + 1, 0);
+
   return (
     <div>
       <div
@@ -103,6 +110,8 @@ export default function ProductPage({ params }) {
             />
           </button>
 
+
+
           {/* ปุ่มขวา */}
           <button  onClick={() => {
               router.push("/cart");
@@ -112,6 +121,15 @@ export default function ProductPage({ params }) {
               alt="Right Button"
               className="h-6"
             />
+
+              {/* จำนวนสินค้าบนรูปรถเข็น */}
+              {cartItemsCount > 0 && (
+                <div className="absolute top-3 right-3 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                  {cartItemsCount}
+                </div>
+              )}
+
+
           </button>
         </div>
        

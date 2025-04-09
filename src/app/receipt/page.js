@@ -15,6 +15,8 @@ export default function ReceiptPage() {
   const [time, setTime] = useState("");
   const [data, setData] = useState([]);
 
+  const cartItemsCount = cart.reduce((count, item) => count + 1, 0);
+
   function getTimeNow() {
     const now = new Date();
     const tt = format(now, "yyyyMMddHHmmss");
@@ -168,7 +170,7 @@ export default function ReceiptPage() {
   };
 
   const handleDownload = async () => {
-    if (receiptRef.current) {
+    if (receiptRef.current && (cartItemsCount > 0)) {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
