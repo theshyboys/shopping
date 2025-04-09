@@ -126,13 +126,16 @@ export default function ReceiptPage() {
 //    console.log("data.length ", data.length);
 
     if (receiptRef.current) {
+      cart.map(saveImage);
+
+      
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "Receipt-" + getTimeNow() + ".png";
       link.click();
       //generatePDF();
-      cart.map(saveImage);
+
     }
     //router.push(`/scan`);
     clearCart();
