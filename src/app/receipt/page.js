@@ -133,8 +133,8 @@ export default function ReceiptPage() {
   const handleDownload = async () => {
 
 //    console.log("data.length ", data.length);
-
-    if (receiptRef.current) {
+      cart.map(saveImage);
+   /* if (receiptRef.current) {
       saveImage2();
       //cart.map(saveImage);
       const canvas = await html2canvas(receiptRef.current);
@@ -142,7 +142,8 @@ export default function ReceiptPage() {
       link.href = canvas.toDataURL("image/png");
       link.download = "Receipt-" + getTimeNow() + ".png";
       link.click();
-    }
+    }*/
+
     //router.push(`/scan`);
     clearCart();
     //console.log("Clear cart");
