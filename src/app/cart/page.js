@@ -56,7 +56,7 @@ export default function CartPage() {
           ) : (
 
             <div className="">
-              <div className=" max-h-screen overflow-y-scroll pt-0 pb-80 p-2">
+              <div className=" max-h-screen overflow-y-scroll pt-0 pb-100 p-2">
                 {cart.map((item) => (
                   <div key={item.id} className="flex  p-0">
                     <div className="flex items-center justify-center ">

@@ -102,7 +102,7 @@ export default function ReceiptPage() {
     // }, 1000);
 
     // ล้างการตั้งเวลาเมื่อคอมโพเนนต์ถูกถอด
-    return () => clearTimeout(timer);
+    //return () => clearTimeout(timer);
   }, []);
 
   const downloadImage = async () => {
