@@ -36,7 +36,7 @@ export default function CartPage() {
       >
         <div className="flex">
           <Link
-            href="javascript:history.back()"
+            href="/scan"
             className="py-5 px-8 text-2xl font-bold text-blue-600"
           >
             <img src={"/images/BT-Back.png"} className="h-4" />
