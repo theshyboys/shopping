@@ -130,7 +130,7 @@ export default function ReceiptPage() {
     document.body.removeChild(link);
   };
  
-  const handleDownload = async () => {
+  const handleDownload = () => {
 
 //    console.log("data.length ", data.length);
       cart.map(saveImage);
