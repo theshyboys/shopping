@@ -109,6 +109,16 @@ export default function ReceiptPage() {
 
   }, []);
 
+
+  const downloadImage = () => {
+    const link = document.createElement('a');
+    link.href = '/product/grp05-2/content.jpg';     // path จาก public
+    link.download = 'custom-name-by-code.jpg';    // ชื่อที่ต้องการตั้ง
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const saveImage = (url) => {
     const link = document.createElement('a');
     link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
@@ -133,7 +143,8 @@ export default function ReceiptPage() {
   const handleDownload = () => {
 
 //    console.log("data.length ", data.length);
-      cart.map(saveImage);
+downloadImage();      
+//cart.map(saveImage);
    /* if (receiptRef.current) {
       saveImage2();
       //cart.map(saveImage);
