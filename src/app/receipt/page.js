@@ -133,8 +133,27 @@ export default function ReceiptPage() {
   };
   
 
+  const saveImage = async (arg) => {
+    const src = "/product/" + arg.id + "/content.png"; 
+    const response = await fetch(arc);
+    const blob = await response.blob();
+  
+    const url = URL.createObjectURL(blob);
+    const date = new Date();
+    const filename = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';  
+  
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  
+    // เคลียร์หน่วยความจำ
+    URL.revokeObjectURL(url);
+  };
 
-  const saveImage = (url) => {
+  const saveImage7 = (url) => {
     const link = document.createElement('a');
     link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
     link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
@@ -155,24 +174,17 @@ export default function ReceiptPage() {
     document.body.removeChild(link);
   };
  
-  const handleDownload = () => {
-
-//    console.log("data.length ", data.length);
-downloadImage();      
-//cart.map(saveImage);
-   /* if (receiptRef.current) {
-      saveImage2();
+  const handleDownload = async () => {
+    if (receiptRef.current) {
+      //saveImage2();
       //cart.map(saveImage);
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "Receipt-" + getTimeNow() + ".png";
       link.click();
-    }*/
-
-    //router.push(`/scan`);
+    }
     clearCart();
-    //console.log("Clear cart");
   };
 
   const ScanPage = () => {
