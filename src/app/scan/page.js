@@ -234,21 +234,21 @@ export default function QrScanner() {
 
 
         {/* ภาพโอเวอร์เลย์ */}
-              <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
-                <Image
-                  src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
-                  alt="Overlay"
-                  layout="fill"
-                  objectFit="cover"
-                  className="opacity-90" // ปรับความโปร่งใสตามต้องการ
-                />
-              </div>
+        <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
+          <Image
+            src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
+            alt="Overlay"
+            fill
+            priority
+            className="opacity-90 object-cover" // ปรับความโปร่งใสตามต้องการ
+          />
+        </div>
 
-        {scanResult && (
+        {/* {scanResult && (
           <div className={styles.result}>
             <p>ผลลัพธ์: {scanResult}</p>
           </div>
-        )}
+        )} */}
       </main>
     </div>
   );
