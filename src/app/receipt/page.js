@@ -122,6 +122,9 @@ export default function ReceiptPage() {
     const link = document.createElement('a');
     link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public
     link.download = 'abcdef.png';     // ชื่อไฟล์ที่จะบันทึก
+
+   console.log("Name : ",link.download);
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
