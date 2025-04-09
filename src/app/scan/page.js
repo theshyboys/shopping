@@ -7,6 +7,9 @@ import Script from 'next/script';
 import styles from '../Scanner.module.css';
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Html5Qrcode, Html5QrcodeSupportedFormats } from "html5-qrcode";
+
+let n = 0;
 
 export default function QrScanner() {
   const [scanResult, setScanResult] = useState('');
@@ -16,11 +19,11 @@ export default function QrScanner() {
   const readerRef = useRef(null);
   const html5QrCodeRef = useRef(null);
   const router = useRouter();
-
+  
   // ฟังก์ชันเริ่มการสแกน
   const startScanner = async () => {
     try {
-      const Html5Qrcode = window.Html5Qrcode;
+      //const Html5Qrcode = window.Html5Qrcode;
 
       if (!Html5Qrcode) {
         console.error('Html5Qrcode library not loaded!');
@@ -54,6 +57,9 @@ export default function QrScanner() {
         //aspectRatio: window.innerHeight / window.innerWidth,
       };
 
+
+      console.log("start camera" , n++);
+
       // เริ่มการสแกน
       html5QrCodeRef.current.start(
         { facingMode: 'environment' }, // ใช้กล้องหลัง
@@ -63,7 +69,7 @@ export default function QrScanner() {
       ).then(() => {
         setIsScanning(true);
         setCameraReady(true);
-        
+        console.log("setCameraReady");
         // ปรับแต่ง DOM หลังจากเริ่มกล้อง
         setTimeout(() => {
           // ซ่อนส่วนที่ไม่จำเป็น
@@ -73,7 +79,7 @@ export default function QrScanner() {
               el.style.display = 'none';
             }
           });
-          
+          console.log("config camera");
           // ปรับแต่งวิดีโอให้เต็มจอ
           const videoElement = document.querySelector('video');
           if (videoElement) {
@@ -157,9 +163,11 @@ export default function QrScanner() {
   // เริ่มสแกนเมื่อ component ถูก mount และหยุดเมื่อ unmount
   useEffect(() => {
     // รอให้ Html5Qrcode โหลดเสร็จก่อนเริ่มสแกน
-    if (typeof window !== 'undefined' && window.Html5Qrcode && !isScanning) {
+   // if (typeof window !== 'undefined' && window.Html5Qrcode && !isScanning) { 
+    if (Html5Qrcode && !isScanning) {
       startScanner();
     }
+
 
     // Cleanup เมื่อ component ถูก unmount
     return () => {
@@ -191,15 +199,24 @@ export default function QrScanner() {
       <Head>
         <title>QR Code Scanner</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+     
+          
+     
       </Head>
       
-      {/* โหลดไลบรารี Html5Qrcode ด้วย Next.js Script component */}
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
-        strategy="beforeInteractive"
-        onLoad={() => console.log('Html5Qrcode loaded')}
-      />
+        {/* โหลดไลบรารี Html5Qrcode ด้วย Next.js Script component */}
+        {/* <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
+          strategy="beforeInteractive"
+          onLoad={() => console.log('Html5Qrcode loaded')}
+        /> */}
       
+      {/* <link
+        rel="preload"
+        as="script"
+        href="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
+      /> */}
+
       <main className={styles.main}>
         {hasPermission === false && (
           <div className={styles.permissionError}>
