@@ -67,7 +67,7 @@ export default function ReceiptPage() {
         ctx.drawImage(img, 0, 0);
         resolve(canvas);
       };
-      img.src = "/product/" + url.id + "/detail.png";
+      img.src = "/product/" + url.id + "/content.png";
     });
   };
 
@@ -111,9 +111,9 @@ export default function ReceiptPage() {
 
   const saveImage = (url) => {
     const link = document.createElement('a');
-    link.href = "/product/" + url.id + "/detail.png"; // ต้องเป็น path จาก public
-//    link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
-    link.download = getTimeNow() + ".png";     // ชื่อไฟล์ที่จะบันทึก
+    link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
+    link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
+//    link.download = getTimeNow() + ".png";     // ชื่อไฟล์ที่จะบันทึก
 
     document.body.appendChild(link);
     link.click();
@@ -127,15 +127,11 @@ export default function ReceiptPage() {
 
     if (receiptRef.current) {
       cart.map(saveImage);
-
-
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "Receipt-" + getTimeNow() + ".png";
       link.click();
-      //generatePDF();
-
     }
     //router.push(`/scan`);
     clearCart();

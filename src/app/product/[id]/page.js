@@ -100,7 +100,7 @@ export default function ProductPage({ params }) {
         </div>
 
         <div className="max-h-screen overflow-y-scroll pb-15 border-gray-300 p-2">
-          <img src={"/product/" + product.id + "/detail.png"} className="w-full" />
+          <img src={"/product/" + product.id + "/content.png"} className="w-full" />
         </div>
 
 
