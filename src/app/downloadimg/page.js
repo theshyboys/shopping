@@ -1,14 +1,25 @@
 "use client"
 import {  useEffect } from "react";
 
-const downloadImage = () => {
+const downloadImage = async () => {
+    const response = await fetch('/product/grp05-2/content.png');
+    const blob = await response.blob();
+  
+    const url = URL.createObjectURL(blob);
+    const date = new Date();
+    const filename = `รูป_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.png`;
+  
     const link = document.createElement('a');
-    link.href = '/product/grp05-2/content.jpg';     // path จาก public
-    link.download = 'custom-name-by-code.jpg';    // ชื่อที่ต้องการตั้ง
+    link.href = url;
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  
+    // เคลียร์หน่วยความจำ
+    URL.revokeObjectURL(url);
   };
+  
   
   export default function DownloadButton() {
 
