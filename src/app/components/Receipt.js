@@ -2,7 +2,7 @@ import React from "react";
 
 const Receipt = (props) => {
   return (
-    <div className="p-4 font-DB-PenThai-X text-black">
+    <div className="p-4 font-DB-PenThai-X text-black overflow-y-scroll">
       <div className="p-4 flex items-center justify-center ">
         <img src="/images/LOGO.png" alt="Logo" className="w-19 " />
       </div>

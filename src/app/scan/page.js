@@ -1,108 +1,238 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect, useRef } from "react";
-import { Html5Qrcode, Html5QrcodeSupportedFormats } from "html5-qrcode";
-import { useRouter } from "next/navigation";
+// pages/scanner.js
+import { useEffect, useRef, useState } from 'react';
+import Head from 'next/head';
+import Script from 'next/script';
+import styles from '../Scanner.module.css';
 import Image from "next/image";
-import { Html5QrcodeConstants } from "html5-qrcode/esm/core";
+import { useRouter } from "next/navigation";
 
-export default function FullScreenQRScanner() {
-  const [scanning, setScanning] = useState(true);
-  const [scannedResult, setScannedResult] = useState(null);
-  const videoRef = useRef(null);
+export default function QrScanner() {
+  const [scanResult, setScanResult] = useState('');
+  const [isScanning, setIsScanning] = useState(false);
+  const [isCameraReady, setCameraReady] = useState(false);
+  const [hasPermission, setHasPermission] = useState(null);
+  const readerRef = useRef(null);
+  const html5QrCodeRef = useRef(null);
   const router = useRouter();
-  const [uCount, setUcount] = useState(0);
 
-  useEffect(() => {
-    console.log("useEffect", scanning);
-    setUcount((s) => s + 1);
-    if (scanning) {
-      // สร้างอินสแตนซ์ html5-qrcode
-      const html5QrCode = new Html5Qrcode("full-screen-reader", {
-        formatsToSupport: [
-          Html5QrcodeSupportedFormats.QR_CODE,
-          Html5QrcodeSupportedFormats.AZTEC,
-          Html5QrcodeSupportedFormats.DATA_MATRIX,
-        ],
-      });
+  // ฟังก์ชันเริ่มการสแกน
+  const startScanner = async () => {
+    try {
+      const Html5Qrcode = window.Html5Qrcode;
 
-      // เริ่มสแกน
-      const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        console.log(`QR Code detected: ${decodedText}`);
+      if (!Html5Qrcode) {
+        console.error('Html5Qrcode library not loaded!');
+        return;
+      }
 
-        // หยุดการสแกน
-        html5QrCode
-          .stop()
-          .then(() => {
-            setScanning(false);
-            setScannedResult(decodedText);
-            // นำทางไปยังหน้าถัดไปพร้อมส่ง QR Code
-            setTimeout(() => {
-              //router.push(`/next-page?qr=${encodeURIComponent(decodedText)}`);
-              router.push(`/product/${decodedText}`);
-            }, 1000);
-          })
-          .catch((err) => {
-            console.error("Error stopping the scan", err);
-          });
-      };
+      // สร้าง instance ของ Html5Qrcode
+      html5QrCodeRef.current = new Html5Qrcode('reader');
 
-      // กำหนดค่าการสแกน
+      // ขอสิทธิ์ในการใช้กล้อง
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        setHasPermission(true);
+      } catch (err) {
+        console.error('Camera permission denied:', err);
+        setHasPermission(false);
+        return;
+      }
+
+      // คุณสมบัติของการสแกน
       const config = {
-        fps: 5,
-        //qrbox: {
-        //  width: window.innerWidth * 0.8,
-        //  height: window.innerHeight * 0.6
-        // },
-        videoConstraints: {
-          facingMode: "environment", // ใช้กล้องหลัง
-        },
+        fps: 10,
+        qrbox: { width: 200, height: 200 },
+        //formatsToSupport: [Html5Qrcode.FORMATS.QR_CODE],
+         formatsToSupport: [
+                  Html5QrcodeSupportedFormats.QR_CODE,
+                  Html5QrcodeSupportedFormats.AZTEC,
+                  Html5QrcodeSupportedFormats.DATA_MATRIX,
+                ],
+        //showTorchButtonIfSupported: true,
+        //aspectRatio: window.innerHeight / window.innerWidth,
       };
 
-      // เริ่มกล้อง
-      Html5Qrcode.getCameras()
-        .then((devices) => {
-          if (devices && devices.length) {
-            const cameraId = devices[0].id;
-            html5QrCode
-              .start(cameraId, config, qrCodeSuccessCallback)
-              .catch((err) => {
-                console.error("Error starting the camera", err);
-              });
+      // เริ่มการสแกน
+      html5QrCodeRef.current.start(
+        { facingMode: 'environment' }, // ใช้กล้องหลัง
+        config,
+        onScanSuccess,
+        onScanFailure
+      ).then(() => {
+        setIsScanning(true);
+        setCameraReady(true);
+        
+        // ปรับแต่ง DOM หลังจากเริ่มกล้อง
+        setTimeout(() => {
+          // ซ่อนส่วนที่ไม่จำเป็น
+          const scanRegionElements = document.querySelectorAll('.html5-qrcode-element');
+          scanRegionElements.forEach(el => {
+            if (el.tagName.toLowerCase() !== 'video') {
+              el.style.display = 'none';
+            }
+          });
+          
+          // ปรับแต่งวิดีโอให้เต็มจอ
+          const videoElement = document.querySelector('video');
+          if (videoElement) {
+            videoElement.style.width = '100vw';
+            videoElement.style.height = '100vh';
+            videoElement.style.objectFit = 'cover';
           }
+        }, 1000);
+      }).catch(err => {
+        console.error('Error starting camera:', err);
+        setHasPermission(false);
+      });
+    } catch (err) {
+      console.error('Failed to start scanner:', err);
+    }
+  };
+
+  // ฟังก์ชันหยุดการสแกน
+  const stopScanner = () => {
+    if (html5QrCodeRef.current && html5QrCodeRef.current.isScanning) {
+      html5QrCodeRef.current.stop()
+        .then(() => {
+          setIsScanning(false);
+          setCameraReady(false);
         })
-        .catch((err) => {
-          console.error("Error getting cameras", err);
-          alert("ไม่สามารถเข้าถึงกล้องได้");
-        });
-      setScanning(false);
+        .catch(err => console.error('Error stopping scanner:', err));
+    }
+  };
+
+  // ฟังก์ชันที่ทำงานเมื่อสแกน QR Code สำเร็จ
+  const onScanSuccess = (decodedText, decodedResult) => {
+    setScanResult(decodedText);
+    
+    // เล่นเสียงเมื่อสแกนสำเร็จ
+    beep();
+    
+    // หยุดสแกนชั่วคราว
+    if (html5QrCodeRef.current) {
+      html5QrCodeRef.current.pause();
+    }
+    
+    // เริ่มสแกนใหม่หลังจาก 3 วินาที
+    setTimeout(() => {
+        router.push(`/product/${decodedText}`);
+        stopScanner();
+    //   if (html5QrCodeRef.current) {
+    //     setScanResult('');
+    //     html5QrCodeRef.current.resume();
+    //   }
+    }, 500);
+  };
+
+  // ฟังก์ชันที่ทำงานเมื่อสแกนไม่สำเร็จ
+  const onScanFailure = (error) => {
+    // ไม่ต้องทำอะไรเมื่อสแกนไม่สำเร็จ
+    // console.warn(`QR Code scan error: ${error}`);
+  };
+
+  // ฟังก์ชันสำหรับทำเสียงบี๊ปเมื่อสแกนสำเร็จ
+  const beep = () => {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioContext = new AudioContext();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 800;
+      gainNode.gain.value = 0.5;
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.2);
+    } catch (error) {
+      console.error('Error playing beep sound:', error);
+    }
+  };
+
+  // เริ่มสแกนเมื่อ component ถูก mount และหยุดเมื่อ unmount
+  useEffect(() => {
+    // รอให้ Html5Qrcode โหลดเสร็จก่อนเริ่มสแกน
+    if (typeof window !== 'undefined' && window.Html5Qrcode && !isScanning) {
+      startScanner();
     }
 
-    // ฟังก์ชันทำความสะอาด
+    // Cleanup เมื่อ component ถูก unmount
     return () => {
-      console.log("return", scanning);
+      stopScanner();
     };
-  }, [scanning, router]);
+  }, []);
+
+  // จัดการเมื่อหน้าจอเปลี่ยนขนาด
+  useEffect(() => {
+    const handleResize = () => {
+      // ปรับขนาดวิดีโออีกครั้ง
+      const videoElement = document.querySelector('video');
+      if (videoElement) {
+        videoElement.style.width = '100vw';
+        videoElement.style.height = '100vh';
+        videoElement.style.objectFit = 'cover';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
-    <div className="fixed  min-h-screen inset-0 z-50 bg-black relative">
-      {/* พื้นที่แสดงวิดีโอการสแกนแบบเต็มหน้าจอ */}
-      <div
-        id="full-screen-reader"
-        ref={videoRef}
-        className="w-full h-full relative"
-      ></div>
+    <div className={styles.container}>
+      <Head>
+        <title>QR Code Scanner</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </Head>
+      
+      {/* โหลดไลบรารี Html5Qrcode ด้วย Next.js Script component */}
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
+        strategy="beforeInteractive"
+        onLoad={() => console.log('Html5Qrcode loaded')}
+      />
+      
+      <main className={styles.main}>
+        {hasPermission === false && (
+          <div className={styles.permissionError}>
+            <p>ไม่สามารถเข้าถึงกล้องได้ โปรดอนุญาตให้ใช้กล้องในการตั้งค่าเบราว์เซอร์</p>
+            <button onClick={startScanner} className={styles.retryButton}>
+              ลองอีกครั้ง
+            </button>
+          </div>
+        )}
+        
+        <div id="reader" ref={readerRef} className={styles.reader}></div>
+        
+        {/* <div className={styles.scanFrame}><span></span></div> */}
+        
 
-      {/* ภาพโอเวอร์เลย์ */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <Image
-          src={"/images/Scan.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
-          alt="Overlay"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-90" // ปรับความโปร่งใสตามต้องการ
-        />
-      </div>
+
+        {/* ภาพโอเวอร์เลย์ */}
+              <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
+                <Image
+                  src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
+                  alt="Overlay"
+                  layout="fill"
+                  objectFit="cover"
+                  className="opacity-90" // ปรับความโปร่งใสตามต้องการ
+                />
+              </div>
+
+        {scanResult && (
+          <div className={styles.result}>
+            <p>ผลลัพธ์: {scanResult}</p>
+          </div>
+        )}
+      </main>
     </div>
   );
 }

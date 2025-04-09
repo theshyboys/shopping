@@ -150,7 +150,7 @@ export default function ProductPage({ params }) {
 
 
        
-        <img src="/images/Footer Bar.png" alt="Background" className="px-6 py-0 h-40 w-90 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"/>
+        <img src="/images/Footer Bar.png" alt="Background" className="px-6 py-0 h-30 w-90 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"/>
  
 
         {!exist ? (

@@ -54,9 +54,9 @@ export default function CartPage() {
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
 
+            <div className="">
+              <div className=" max-h-screen overflow-y-scroll pt-0 pb-80 p-2">
                 {cart.map((item) => (
                   <div key={item.id} className="flex  p-0">
                     <div className="flex items-center justify-center ">
@@ -65,10 +65,11 @@ export default function CartPage() {
                   </div>
                 ))}
 
-
               </div>
 
-              <div className="lg:col-span-1">
+
+
+              <div className="w-screen h-auto fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3">
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <div className="flex justify-between">
                     <span className="">จำนวนสินค้าทั้งหมด </span>
@@ -96,6 +97,9 @@ export default function CartPage() {
                 </div>
               </div>
             </div>
+
+
+
           )}
 
           {isGeneratingPDF && (

@@ -176,8 +176,6 @@ export default function ReceiptPage() {
  
   const handleDownload = async () => {
     if (receiptRef.current) {
-      //saveImage2();
-      //cart.map(saveImage);
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
@@ -189,8 +187,6 @@ export default function ReceiptPage() {
 
   const ScanPage = () => {
     router.push(`/`);
-    //console.log("Clear cart");
-    //clearCart();
   };
 
   function getOrdinal(n) {
@@ -198,9 +194,10 @@ export default function ReceiptPage() {
     const v = n % 100;
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
-
+//max-h-screen overflow-y-scroll pt-0 pb-80 p-2
+//<div className="min-h-screen items-center justify-center">
   return (
-    <div className="min-h-screen items-center justify-center">
+    <div className="max-h-screen overflow-y-scroll">
       <div
         className="flex flex-col items-center  min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/BG.png')" }}
