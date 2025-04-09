@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { useCart } from "../../context/CartContext";
 import { useRouter } from "next/navigation";
@@ -10,7 +10,6 @@ export default function ProductPage({ params }) {
   const unwrappedParams = use(params); // unwrap the Promise
   const id = unwrappedParams.id;
 
-  
   const [product, setProduct] = useState(null);
   const [exist, setExist] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -19,6 +18,14 @@ export default function ProductPage({ params }) {
   const { isExist } = useCart();
   const router = useRouter();
   const [exists, setExists] = useState(null);
+  const scrollRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    const y = scrollRef.current.scrollTop;
+    setScrollY(y);
+    //console.log("Scroll : " , y);
+  };
 
   useEffect(() => {
     let filePath = "/product/" + id + "/data.json";
@@ -84,7 +91,102 @@ export default function ProductPage({ params }) {
         className=" min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/BG_Product.png')" }}
       >
-        <div className="flex justify-between items-center">
+        <div className="fixed py-5 left-0 right-0 flex justify-between items-center px-4">
+          {/* ปุ่มซ้าย */}
+          <button  onClick={() => {
+              router.push("/scan");
+            }}>
+            <img
+              src="/images/BT-Back.png"
+              alt="Left Button"
+              className="h-4"
+            />
+          </button>
+
+          {/* ปุ่มขวา */}
+          <button  onClick={() => {
+              router.push("/cart");
+            }}>
+            <img
+              src="/images/BT-Shopping.png"
+              alt="Right Button"
+              className="h-6"
+            />
+          </button>
+        </div>
+       
+
+
+        <div className=" fixed pt-10 w-50 left-1/2 transform -translate-x-1/2">
+          <img
+            src={"/product/" + product.id + "/product.png"}
+            className="w-full"
+          />
+        </div>
+
+        {(scrollY == 0) ? (
+          <div 
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className=" max-h-screen overflow-y-scroll pt-70 pb-15 p-2">
+          <img
+            src={"/product/" + product.id + "/content.png"}
+            className="w-full"
+          />
+        </div>
+        ) : (
+         
+        <div 
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="relative z-1 max-h-screen overflow-y-scroll pt-70 pb-15 p-2">
+          <img
+            src={"/product/" + product.id + "/content.png"}
+            className="w-full"
+          />
+        </div>
+
+        )}
+
+
+       
+        <img src="/images/Footer Bar.png" alt="Background" className="px-6 py-0 h-40 w-90 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"/>
+ 
+
+        {!exist ? (
+
+          <div className="">
+            
+
+            
+             <button
+              onClick={handleAddToCart}
+              className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3"
+            >    
+              <img src="\images\BT-Add to cart.png" alt="Click Me" />
+            
+            </button> 
+         
+          </div>
+        ) : (
+          <button
+            onClick={() => {
+              router.push("/scan");
+            }}
+            className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3"
+          >
+            <img src="\images\BT-Already in cart.png" alt="Click Me" />
+          </button>
+        )}
+
+
+      </div>
+    </div>
+  );
+}
+
+/**
+ <div className="fixed flex justify-between items-center">
           <Link
             href="/scan"
             className="py-5 px-8 text-2xl font-bold text-blue-600"
@@ -98,30 +200,4 @@ export default function ProductPage({ params }) {
             </div>
           </Link>
         </div>
-
-        <div className="max-h-screen overflow-y-scroll pb-15 border-gray-300 p-2">
-          <img src={"/product/" + product.id + "/content.png"} className="w-full" />
-        </div>
-
-
-        {!exist ? (
-          <button
-            onClick={handleAddToCart}
-            className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
-          >
-            <img src="\images\BT-Add to cart.png" alt="Click Me" />
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              router.push("/scan");
-            }}
-            className="px-6 py-2 w-90 fixed bottom-10 left-1/2 transform -translate-x-1/2 "
-          >
-            <img src="\images\BT-Already in cart.png" alt="Click Me" />
-          </button>
-        )}
-      </div>
-    </div>
-  );
-}
+ */
