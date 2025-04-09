@@ -188,7 +188,7 @@ export default function ReceiptPage() {
   };
 
   const ScanPage = () => {
-    router.push(`/scan`);
+    router.push(`/`);
     //console.log("Clear cart");
     //clearCart();
   };
