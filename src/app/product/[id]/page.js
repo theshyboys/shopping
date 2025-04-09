@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function ProductPage({ params }) {
   const unwrappedParams = use(params); // unwrap the Promise
-  const id = unwrappedParams.id;
+  const id = (unwrappedParams.id).toLowerCase();
 
   const [product, setProduct] = useState(null);
   const [exist, setExist] = useState(false);
