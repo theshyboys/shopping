@@ -24,7 +24,7 @@ export default function ProductPage({ params }) {
   const handleScroll = () => {
     const y = scrollRef.current.scrollTop;
     setScrollY(y);
-    //console.log("Scroll : " , y);
+    console.log("Scroll : " , y, "H",scrollRef.current.offsetHeight);
   };
 
   useEffect(() => {
@@ -139,7 +139,7 @@ export default function ProductPage({ params }) {
         <div 
           ref={scrollRef}
           onScroll={handleScroll}
-          className="relative z-1 max-h-screen overflow-y-scroll pt-70 pb-15 p-2">
+          className="relative z-1 max-h-screen overflow-y-scroll pt-70 pb-30 p-2">
           <img
             src={"/product/" + product.id + "/content.png"}
             className="w-full"
