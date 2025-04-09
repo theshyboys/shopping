@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../Scanner.module.css';
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function QrScanner() {
   const [scanResult, setScanResult] = useState('');
@@ -13,6 +15,7 @@ export default function QrScanner() {
   const [hasPermission, setHasPermission] = useState(null);
   const readerRef = useRef(null);
   const html5QrCodeRef = useRef(null);
+  const router = useRouter();
 
   // ฟังก์ชันเริ่มการสแกน
   const startScanner = async () => {
@@ -40,7 +43,7 @@ export default function QrScanner() {
       // คุณสมบัติของการสแกน
       const config = {
         fps: 10,
-        qrbox: { width: 250, height: 250 },
+        qrbox: { width: 200, height: 200 },
         //formatsToSupport: [Html5Qrcode.FORMATS.QR_CODE],
          formatsToSupport: [
                   Html5QrcodeSupportedFormats.QR_CODE,
@@ -112,12 +115,16 @@ export default function QrScanner() {
       html5QrCodeRef.current.pause();
     }
     
+
+    
     // เริ่มสแกนใหม่หลังจาก 3 วินาที
     setTimeout(() => {
-      if (html5QrCodeRef.current) {
-        setScanResult('');
-        html5QrCodeRef.current.resume();
-      }
+        router.push(`/product/${decodedText}`);
+        stopScanner();
+    //   if (html5QrCodeRef.current) {
+    //     setScanResult('');
+    //     html5QrCodeRef.current.resume();
+    //   }
     }, 3000);
   };
 
@@ -207,8 +214,21 @@ export default function QrScanner() {
         
         <div id="reader" ref={readerRef} className={styles.reader}></div>
         
-        <div className={styles.scanFrame}><span></span></div>
+        {/* <div className={styles.scanFrame}><span></span></div> */}
         
+
+
+        {/* ภาพโอเวอร์เลย์ */}
+              <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
+                <Image
+                  src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
+                  alt="Overlay"
+                  layout="fill"
+                  objectFit="cover"
+                  className="opacity-90" // ปรับความโปร่งใสตามต้องการ
+                />
+              </div>
+
         {scanResult && (
           <div className={styles.result}>
             <p>ผลลัพธ์: {scanResult}</p>
