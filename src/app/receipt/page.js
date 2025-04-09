@@ -75,7 +75,9 @@ export default function ReceiptPage() {
   const saveImage = (url) => {
     const link = document.createElement('a');
     link.href = "/product/" + url.id + "/detail.png"; // ต้องเป็น path จาก public
-    link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
+//    link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
+    link.download = url.id +  getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
