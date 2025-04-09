@@ -113,20 +113,27 @@ export default function ReceiptPage() {
     const link = document.createElement('a');
     link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
     link.download = url.id +"-" + url.name_en + "-"+ getTimeNow() + '.png';     // ชื่อไฟล์ที่จะบันทึก
-//    link.download = getTimeNow() + ".png";     // ชื่อไฟล์ที่จะบันทึก
-
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
+  const saveImage2 = () => {
+    const link = document.createElement('a');
+    link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public
+    link.download = 'abcdef.png';     // ชื่อไฟล์ที่จะบันทึก
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
  
   const handleDownload = async () => {
 
 //    console.log("data.length ", data.length);
 
     if (receiptRef.current) {
-      cart.map(saveImage);
+      saveImage2();
+      //cart.map(saveImage);
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
