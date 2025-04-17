@@ -1,11 +1,7 @@
 "use client";
 
-//import Image from "next/image";
-import ReceiptPage from "./receipt/page";
 import SplashScreen from "./splash";
-import { useRouter } from "next/navigation";
-
-import ClickMe from "./clickme/page";
+import ScanPage from "./scan/page"
 
 /*
 echo "# shopping" >> README.md
@@ -33,16 +29,16 @@ https://vercel.com/new?teamSlug=theshyboys-projects
 https://th.qr-code-generator.com/
 
 
-
-
-
 */
 
 export default function Home() {
-  const router = useRouter();
+ // const router = useRouter();
   return (
+    <>
     <div>
       <SplashScreen />
-    </div>
+      {/* <ScanPage/> */}
+    </div>s
+    </>
   );
 }
