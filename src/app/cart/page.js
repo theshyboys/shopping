@@ -2,10 +2,10 @@
 
 import { useCart } from "../context/CartContext";
 import Link from "next/link";
-import Image from "next/image";
+//import Image from "next/image";
 import { useState } from "react";
-import PDFGenerator from "../components/PDFGenerator";
-import ReceiptPage from "../receipt/page";
+//import PDFGenerator from "../components/PDFGenerator";
+//import ReceiptPage from "../receipt/page";
 import { useRouter } from "next/navigation";
 
 
@@ -23,9 +23,7 @@ export default function CartPage() {
   const total = subtotal + tax;
 
   const handleCheckout = () => {
-
     router.push("/receipt");
-    //clearCart();
   };
 
   return (
@@ -102,7 +100,7 @@ export default function CartPage() {
 
           )}
 
-          {isGeneratingPDF && (
+          {/* {isGeneratingPDF && (
             <PDFGenerator
               cart={cart}
               subtotal={subtotal}
@@ -113,7 +111,9 @@ export default function CartPage() {
                 //clearCart();
               }}
             />
-          )}
+          )} */}
+
+
         </div>
       </div>
     </div>
