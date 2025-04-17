@@ -11,7 +11,7 @@ export default function QRScanner() {
   const router = useRouter();
   const hasRun = useRef(false);
 
-  
+
   useEffect(() => {
     if (hasRun.current) return;
     hasRun.current = true;
@@ -25,7 +25,7 @@ export default function QRScanner() {
 
         const config = {
           fps: 10,
-          qrbox: { width: 250, height: 250 },
+          qrbox: { width: 200, height: 200 },
           rememberLastUsedCamera: true,
           supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
         };
@@ -103,17 +103,18 @@ export default function QRScanner() {
     <div className="relative w-screen h-screen overflow-hidden">
       {/* Container สำหรับ Html5Qrcode */}
       <div id="reader" ref={videoRef} className="w-full h-full" />
-      
-       {/* ภาพโอเวอร์เลย์ */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-              <Image
-                src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
-                alt="Overlay"
-                fill
-                priority
-                className="opacity-90 object-cover" // ปรับความโปร่งใสตามต้องการ
-              />
-            </div>
+  
+
+        {/* ภาพโอเวอร์เลย์ */}
+        <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
+          <Image
+            src={"/images/QR-SCAN_01.png"} // แทนที่ด้วย path ของภาพโอเวอร์เลย์
+            alt="Overlay"
+            fill
+            priority
+            className="opacity-90 object-cover" // ปรับความโปร่งใสตามต้องการ
+          />
+        </div>
 
     </div>
   );
