@@ -168,13 +168,11 @@ export default function ReceiptPage() {
     await cart.map(saveImages);
   }
 
-  const saveImage2 = () => {
+  const saveImageTest = () => {
     const link = document.createElement("a");
     link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public
     link.download = "abcdef.png"; // ชื่อไฟล์ที่จะบันทึก
-
     console.log("Name : ", link.download);
-
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -227,8 +225,9 @@ export default function ReceiptPage() {
       <div className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4">
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              saveAll();
-              handleDownload();              
+              //saveAll();
+              //handleDownload();              
+              saveImageTest();
             }}>
             <img
               src="/images/BT-Save photo.png"
