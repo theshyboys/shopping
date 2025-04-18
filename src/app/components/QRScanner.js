@@ -1,7 +1,7 @@
 'use client'; // ต้องใช้ client component ใน Next.js
 
 import { Html5Qrcode,Html5QrcodeScanType } from 'html5-qrcode';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef ,useState} from 'react';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ export default function QRScanner() {
   const videoRef = useRef(null);//<HTMLDivElement>(null);
   const router = useRouter();
   const hasRun = useRef(false);
-
+  const [hasPermission, setHasPermission] = useState(null);
 
   useEffect(() => {
     if (hasRun.current) return;
@@ -22,6 +22,20 @@ export default function QRScanner() {
         const scanner = new Html5Qrcode('reader');
         scannerRef.current = scanner;
         console.log("Init Html5Qrcode");
+
+
+        // ขอสิทธิ์ในการใช้กล้อง
+        try {
+          await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+          setHasPermission(true);
+        } catch (err) {
+          console.error('Camera permission denied:', err);
+          setHasPermission(false);
+          return;
+        }
+
+
+
 
         const config = {
           fps: 10,
@@ -72,6 +86,7 @@ export default function QRScanner() {
       if (scannerRef.current && scannerRef.current.isScanning) {
         scannerRef.current.stop().catch(console.error);
         console.log("scannerRef.current.stop");
+        setHasPermission(false);
       }
     };
   }, [router]);
