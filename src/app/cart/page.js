@@ -26,6 +26,17 @@ export default function CartPage() {
     router.push("/receipt");
   };
 
+  const saveImageTest = () => {
+    const link = document.createElement("a");
+    link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public
+    link.download = "abcdef.png"; // ชื่อไฟล์ที่จะบันทึก
+    console.log("Name : ", link.download);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+
   return (
     <div className="font-DB-PenThai-X-bold text-black">
       <div
@@ -86,7 +97,8 @@ export default function CartPage() {
 
                   <div className="pt-4 mt-4">
                     <button
-                      onClick={handleCheckout}
+                      //onClick={handleCheckout}
+                      onClick={saveImageTest}
                       className="w-full text-white rounded-md "
                     >
                       <img src="\images\BT-Check out.png" />
