@@ -153,10 +153,11 @@ export default function ReceiptPage() {
     URL.revokeObjectURL(url);
   };
 
-  const saveImage7 = (url) => {
+  const saveImages = (url) => {
     const link = document.createElement("a");
     link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
-    link.download = url.id + "-" + url.name_en + "-" + getTimeNow() + ".png"; // ชื่อไฟล์ที่จะบันทึก
+    //link.download = url.id + "-" + url.name_en + "-" + getTimeNow() + ".png"; // ชื่อไฟล์ที่จะบันทึก
+    link.download = "abcdef.png";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -164,7 +165,7 @@ export default function ReceiptPage() {
 
 
   const saveAll = async () => {
-    await cart.map(saveImage7);
+    await cart.map(saveImages);
   }
 
   const saveImage2 = () => {
