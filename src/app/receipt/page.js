@@ -205,7 +205,40 @@ export default function ReceiptPage() {
     document.body.removeChild(link);
   };
 
+
   const handleDownload = async () => {
+    if (receiptRef.current && (cartItemsCount > 0)) {
+      const canvas = await html2canvas(receiptRef.current);
+      //const link = document.createElement("a");
+      //link.href = canvas.toDataURL("image/png");
+      //link.download = "Receipt-" + getTimeNow() + ".png";
+      //link.click();
+
+
+      //const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = "Receipt-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
+        link.target = '_blank'; // เปิดในแท็บใหม่ช่วยให้ iOS จัดการได้ดีขึ้น
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }, 'image/jpeg', 0.9);
+    }
+    router.push(`/`);
+    clearCart();
+  };
+  
+  const handleDownload00 = async () => {
     if (receiptRef.current && (cartItemsCount > 0)) {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
