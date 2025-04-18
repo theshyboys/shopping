@@ -7,7 +7,7 @@ const downloadImage = async () => {
   
     const url = URL.createObjectURL(blob);
     const date = new Date();
-    const filename = `รูป_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.jpg`;
+    const filename = `รูป_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.png`;
   
     const link = document.createElement('a');
     link.href = url;
