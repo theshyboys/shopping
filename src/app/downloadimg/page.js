@@ -12,6 +12,7 @@ const downloadImage = async () => {
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;
+    link.target = '_blank'; // เปิดในแท็บใหม่ช่วยให้ iOS จัดการได้ดีขึ้น
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -39,6 +40,7 @@ const downloadImage = async () => {
           const link = document.createElement('a');
           link.href = url;
           link.download = 'nextjs-image.jpg';
+          link.target = '_blank'; // เปิดในแท็บใหม่ช่วยให้ iOS จัดการได้ดีขึ้น
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
