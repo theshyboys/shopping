@@ -97,8 +97,8 @@ export default function CartPage() {
 
                   <div className="pt-4 mt-4">
                     <button
-                      //onClick={handleCheckout}
-                      onClick={saveImageTest}
+                      onClick={handleCheckout}
+                      //onClick={saveImageTest}
                       className="w-full text-white rounded-md "
                     >
                       <img src="\images\BT-Check out.png" />

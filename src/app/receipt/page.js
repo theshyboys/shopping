@@ -225,9 +225,9 @@ export default function ReceiptPage() {
       <div className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4">
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              //saveAll();
-              //handleDownload();              
-              saveImageTest();
+              saveAll();
+              handleDownload();              
+              //saveImageTest();
             }}>
             <img
               src="/images/BT-Save photo.png"
