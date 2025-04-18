@@ -13,8 +13,8 @@ export default function QRScanner() {
   const [hasPermission, setHasPermission] = useState(null);
 
   useEffect(() => {
-    //if (hasRun.current) return;
-    //hasRun.current = true;
+    if (hasRun.current) return;
+    hasRun.current = true;
 
     console.log("useEffect QRScanner");
     const initScanner = async () => {
@@ -58,7 +58,7 @@ export default function QRScanner() {
               errorMessage !==
               "QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code."
             ) {
-              console.warn("QR Code scan error:", errorMessage);
+              //console.warn("QR Code scan error:", errorMessage);
             }
           }
         );

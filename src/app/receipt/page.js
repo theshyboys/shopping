@@ -206,7 +206,58 @@ export default function ReceiptPage() {
   };
 
 
+
+
+  
   const handleDownload = async () => {
+    if (receiptRef.current && (cartItemsCount > 0)) { 
+      try {
+        const options = {
+          scale: 2, // เพิ่มความละเอียด
+          logging: false, // ปิด logging
+          useCORS: true, // อนุญาต CORS
+          allowTaint: true, // อนุญาต tainted canvas
+          scrollY: -window.scrollY, // จัดการกับการ scroll
+        };
+  
+        const canvas = await html2canvas(receiptRef.current, options);
+      
+          // สำหรับอุปกรณ์อื่นๆ ดาวน์โหลดโดยตรง
+          // const link = document.createElement('a');
+          // link.href = canvas.toDataURL('image/jpeg', 0.9);
+          // link.download = "Receipt-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
+          // link.click();
+        
+          // หลังจากได้ canvas แล้ว
+          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            const img = new Image();
+            img.src = canvas.toDataURL('image/jpeg');
+            const newWindow = window.open();
+            newWindow.document.write(`<img src="${img.src}" style="max-width:100%">`);
+            newWindow.document.close();
+          } else {
+            // ดาวน์โหลดปกติสำหรับ Desktop
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/jpeg');
+            link.download = "Receipt-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
+            link.click();
+          }
+
+
+
+      } catch (error) {
+        console.error('Error capturing screenshot:', error);
+        alert('ไม่สามารถบันทึกภาพได้: ' + error.message);
+      }
+
+    }
+    router.push(`/`);
+    clearCart();
+  };
+  
+
+
+  const handleDownloadx = async () => {
     if (receiptRef.current && (cartItemsCount > 0)) {
       const canvas = await html2canvas(receiptRef.current);
       //const link = document.createElement("a");
@@ -216,11 +267,11 @@ export default function ReceiptPage() {
 
 
       //const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
+      //canvas.width = img.width;
+      //canvas.height = img.height;
       
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+      //const ctx = canvas.getContext('2d');
+      //ctx.drawImage(img, 0, 0);
       
       canvas.toBlob((blob) => {
         const url = URL.createObjectURL(blob);
@@ -238,6 +289,10 @@ export default function ReceiptPage() {
     clearCart();
   };
   
+
+
+
+
   const handleDownload00 = async () => {
     if (receiptRef.current && (cartItemsCount > 0)) {
       const canvas = await html2canvas(receiptRef.current);
@@ -285,7 +340,7 @@ export default function ReceiptPage() {
       <div className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4">
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              saveAll();
+              //saveAll();
               handleDownload();              
               //saveImageTest();
             }}>
