@@ -113,7 +113,14 @@ export default function QRScanner() {
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div 
+      className="relative w-screen h-screen overflow-hidden"
+      //className=" w-full h-full"
+      // style={{ 
+      //   maxWidth: '500px',
+      //   margin: '0 auto',
+      // }}
+    >
       {/* Container สำหรับ Html5Qrcode */}
       <div id="reader" ref={videoRef} className="w-full h-full" />
 

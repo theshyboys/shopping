@@ -112,6 +112,158 @@ export default function ReceiptPage() {
     //return () => clearTimeout(timer);
   }, []);
 
+
+ 
+
+  const combineAndDownload = async () => {
+    
+    const id = "grp05-2";
+
+    const imagePaths = [
+      '/images/BG_Product.png',
+      '/product/'+ id + '/product.png',
+      '/product/'+ id + '/content.png'
+    ];
+    
+    try {
+      // รอให้รูปภาพโหลดเสร็จทั้งหมด
+      const loadedImages = await Promise.all(
+        imagePaths.map(src => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(img);
+          });
+        })
+      );
+
+      // สร้าง Canvas สำหรับรูปภาพรวม
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+ 
+      
+      // คำนวณขนาด Canvas
+      const maxWidth = Math.max(...loadedImages.map(img => img.width));
+      const totalHeight = loadedImages[1].height + loadedImages[2].height;//loadedImages.reduce((sum, img) => sum + img.height, 0);
+      
+      canvas.width = maxWidth;
+      canvas.height = totalHeight;
+      
+
+      // เติมพื้นหลังสีขาว
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+           
+      // วาดรูปภาพลงบน Canvas
+      let currentY = 50;
+      const spacing = 30; // ระยะห่างระหว่างรูป
+      let i = 0;
+      loadedImages.forEach(img => {
+        if(i == 0){
+          ctx.drawImage(img, 0, 0);
+        }else{
+          const x = (canvas.width - img.width) / 2;
+          ctx.drawImage(img, x, currentY);
+          currentY += img.height + spacing;
+        }
+        i++;
+        
+      });
+
+      // แปลงเป็น JPG และดาวน์โหลด
+      const imageData = canvas.toDataURL('image/jpeg', 0.95);
+      const link = document.createElement('a');
+      link.href = imageData;
+      link.download = 'combined-images.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+    } catch (error) {
+      console.error('Error combining images:', error);
+      alert('เกิดข้อผิดพลาดในการรวมรูปภาพ');
+    } finally {
+
+    }
+  };
+
+
+  const DownloadProductToJPG = async (items) => {
+    
+    //const id = "grp05-2";
+
+    const imagePaths = [
+      '/images/BG_Product.png',
+      '/product/'+ items.id + '/product.png',
+      '/product/'+ items.id + '/content.png'
+    ];
+    
+    try {
+      // รอให้รูปภาพโหลดเสร็จทั้งหมด
+      const loadedImages = await Promise.all(
+        imagePaths.map(src => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(img);
+          });
+        })
+      );
+
+      // สร้าง Canvas สำหรับรูปภาพรวม
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+ 
+      
+      // คำนวณขนาด Canvas
+      const maxWidth = Math.max(...loadedImages.map(img => img.width));
+      const totalHeight = loadedImages[1].height + loadedImages[2].height;//loadedImages.reduce((sum, img) => sum + img.height, 0);
+      
+      canvas.width = maxWidth;
+      canvas.height = totalHeight;
+      
+
+      // เติมพื้นหลังสีขาว
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+           
+      // วาดรูปภาพลงบน Canvas
+      let currentY = 50;
+      const spacing = 30; // ระยะห่างระหว่างรูป
+      let i = 0;
+      loadedImages.forEach(img => {
+        if(i == 0){
+          ctx.drawImage(img, 0, 0);
+        }else{
+          const x = (canvas.width - img.width) / 2;
+          ctx.drawImage(img, x, currentY);
+          currentY += img.height + spacing;
+        }
+        i++;
+        
+      });
+
+      // แปลงเป็น JPG และดาวน์โหลด
+      const imageData = canvas.toDataURL('image/jpeg', 0.95);
+      const link = document.createElement('a');
+      link.href = imageData;
+      link.download = items.id + "-" + items.name_en + "-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+    } catch (error) {
+      console.error('Error combining images:', error);
+      alert('เกิดข้อผิดพลาดในการรวมรูปภาพ');
+    } finally {
+
+    }
+  };
+
+
+
   const downloadImage = async () => {
     const response = await fetch("/product/grp05-2/content.png");
     const blob = await response.blob();
@@ -192,7 +344,7 @@ export default function ReceiptPage() {
 
 
   const saveAll = async () => {
-    await cart.map(handleDownloadContentToJPG);
+    await cart.map(DownloadProductToJPG);
   }
 
   const saveImageTest = () => {
@@ -318,7 +470,13 @@ export default function ReceiptPage() {
   //max-h-screen overflow-y-scroll pt-0 pb-80 p-2
   //<div className="min-h-screen items-center justify-center">
   return (
-    <div className="max-h-screen overflow-y-scroll">
+    <div 
+    className="max-h-screen overflow-y-scroll"
+    style={{ 
+      maxWidth: '400px',
+      margin: '0 auto',
+    }}
+    >
       <div
         className="flex flex-col items-center  min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/BG.png')" }}
@@ -337,9 +495,16 @@ export default function ReceiptPage() {
       </div>
 
 
-      <div className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4">
+      <div 
+      className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4"
+      style={{ 
+        maxWidth: '400px',
+        margin: '0 auto',
+      }}
+      >
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
+              //combineAndDownload();
               saveAll();
               handleDownload();              
               //saveImageTest();

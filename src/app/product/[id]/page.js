@@ -96,7 +96,11 @@ export default function ProductPage({ params }) {
     <div>
       <div
         className=" min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/BG_Product.png')" }}
+        style={{ 
+          backgroundImage: "url('/images/BG_Product.png')" ,
+          maxWidth: '400px',
+          margin: '0 auto',
+        }}
       >
         <div className="fixed py-5 left-0 right-0 flex justify-between items-center px-4">
           {/* ปุ่มซ้าย */}

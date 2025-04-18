@@ -38,7 +38,13 @@ export default function CartPage() {
 
 
   return (
-    <div className="font-DB-PenThai-X-bold text-black">
+    <div 
+      className="font-DB-PenThai-X-bold text-black"
+      style={{ 
+        maxWidth: '400px',
+        margin: '0 auto',
+      }}
+    >
       <div
         className=" min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/05_Cart.png')" }}
@@ -78,7 +84,13 @@ export default function CartPage() {
 
 
 
-              <div className="w-screen h-auto fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3">
+              <div 
+                className="w-screen h-auto fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"
+                style={{ 
+                  maxWidth: '400px',
+                  margin: '0 auto',
+                }}
+              >
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <div className="flex justify-between">
                     <span className="">จำนวนสินค้าทั้งหมด </span>
@@ -98,7 +110,6 @@ export default function CartPage() {
                   <div className="pt-4 mt-4">
                     <button
                       onClick={handleCheckout}
-                      //onClick={saveImageTest}
                       className="w-full text-white rounded-md "
                     >
                       <img src="\images\BT-Check out.png" />
@@ -107,25 +118,7 @@ export default function CartPage() {
                 </div>
               </div>
             </div>
-
-
-
           )}
-
-          {/* {isGeneratingPDF && (
-            <PDFGenerator
-              cart={cart}
-              subtotal={subtotal}
-              tax={tax}
-              total={total}
-              onComplete={() => {
-                //setIsGeneratingPDF(false);
-                //clearCart();
-              }}
-            />
-          )} */}
-
-
         </div>
       </div>
     </div>
