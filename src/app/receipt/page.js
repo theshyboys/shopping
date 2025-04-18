@@ -163,8 +163,8 @@ export default function ReceiptPage() {
   };
 
 
-  const saveAll =  () => {
-    cart.map(saveImage7);
+  const saveAll = async () => {
+    await cart.map(saveImage7);
   }
 
   const saveImage2 = () => {
