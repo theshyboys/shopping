@@ -81,7 +81,7 @@ const downloadImage = async () => {
     return (
       <button
 //        onClick={handleDownload}
-        onClick={saveImageTest}
+        onClick={handleDownload}
 
         className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
       >

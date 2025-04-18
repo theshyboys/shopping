@@ -12,7 +12,8 @@ git branch -M main
 git remote add origin https://github.com/theshyboys/shopping.git
 git push -u origin main
 
-https://shopping-two-rosy.vercel.app/
+https://shopping-one-alpha.vercel.app/
+
 echo "# shopping" >> README
 
 git init
