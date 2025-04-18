@@ -23,6 +23,9 @@ export default function ReceiptPage() {
     return tt;
   }
 
+
+
+  
   const generatePDF = async () => {
     const imagesData = await Promise.all(cart.map(loadImageAsCanvas));
     // คำนวณความสูงรวมของ PDF
@@ -56,6 +59,8 @@ export default function ReceiptPage() {
     pdf.save(name);
     // pdf.save('long-images.pdf');
   };
+
+
 
   const loadImageAsCanvas = (url) => {
     return new Promise((resolve) => {
@@ -157,6 +162,11 @@ export default function ReceiptPage() {
     document.body.removeChild(link);
   };
 
+
+  const saveAll =  () => {
+    cart.map(saveImage7);
+  }
+
   const saveImage2 = () => {
     const link = document.createElement("a");
     link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public
@@ -216,7 +226,8 @@ export default function ReceiptPage() {
       <div className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4">
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              handleDownload();
+              saveAll();
+              handleDownload();              
             }}>
             <img
               src="/images/BT-Save photo.png"
