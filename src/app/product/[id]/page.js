@@ -102,7 +102,21 @@ export default function ProductPage({ params }) {
           margin: '0 auto',
         }}
       >
-        <div className="fixed py-5 left-0 right-0 flex justify-between items-center px-4">
+        <div 
+//          className="fixed py-5 left-0 right-0 flex justify-between items-center px-4"
+          className="fixed py-5  flex  items-center px-4"
+          style={{ 
+            //maxWidth: '400px',
+            margin: '0 auto',
+            //position: 'fixed',
+            //bottom: '20px',
+            left: '0',
+            right: '0',
+            //display: 'flex',
+            justifyContent: 'center',
+            gap: '300px', // ระยะห่างระหว่างปุ่ม
+          }}
+        >
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
               router.push("/scan");
@@ -117,18 +131,39 @@ export default function ProductPage({ params }) {
 
 
           {/* ปุ่มขวา */}
-          <button  onClick={() => {
+          <button 
+            style={{ position: 'relative' }}
+            onClick={() => {
               router.push("/cart");
             }}>
+
             <img
               src="/images/BT-Shopping.png"
               alt="Right Button"
               className="h-6"
-            />
+            ></img>
 
               {/* จำนวนสินค้าบนรูปรถเข็น */}
               {cartItemsCount > 0 && (
-                <div className="absolute top-3 right-3 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                <div 
+                 //className="absolute top-3 right-3 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center"
+                 //className=" rounded-full "
+                 style={{
+                  position: 'absolute',
+                  top: '-6px',
+                  right: '-6px',
+                  backgroundColor: '#ff4757',
+                  color: 'white',
+                  borderRadius: '50%',
+                  width: '20px',
+                  height: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '12px',
+                  fontWeight: 'bold'
+                }}
+                >
                   {cartItemsCount}
                 </div>
               )}
@@ -150,7 +185,7 @@ export default function ProductPage({ params }) {
           <div 
           ref={scrollRef}
           onScroll={handleScroll}
-          className=" max-h-screen overflow-y-scroll pt-70 pb-15 p-2">
+          className=" max-h-screen overflow-y-scroll pt-70 pb-15">
           <img
             src={"/product/" + product.id + "/content.png"}
             className="w-full"
@@ -161,7 +196,7 @@ export default function ProductPage({ params }) {
         <div 
           ref={scrollRef}
           onScroll={handleScroll}
-          className="relative z-1 max-h-screen overflow-y-scroll pt-70 pb-30 p-2">
+          className="relative z-1 max-h-screen overflow-y-scroll pt-70 pb-30">
           <img
             src={"/product/" + product.id + "/content.png"}
             className="w-full"
@@ -172,15 +207,17 @@ export default function ProductPage({ params }) {
 
 
        
-        <img src="/images/Footer Bar.png" alt="Background" className="px-6 py-0 h-30 w-90 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"/>
+        <img 
+          src="/images/Footer Bar.png" 
+          alt="Background" 
+          className="px-0 py-0 h-30 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"
+        />
  
 
         {!exist ? (
 
           <div className="">
-            
-
-            
+   
              <button
               onClick={handleAddToCart}
               className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3"

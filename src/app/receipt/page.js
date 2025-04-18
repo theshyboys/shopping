@@ -496,10 +496,19 @@ export default function ReceiptPage() {
 
 
       <div 
-      className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4"
+      // className="fixed bottom-10 left-10 right-10 flex justify-between items-center px-4"
+      className="fixed  flex  items-center px-4"
+
       style={{ 
         maxWidth: '400px',
         margin: '0 auto',
+        //position: 'fixed',
+        bottom: '20px',
+        left: '0',
+        right: '0',
+        //display: 'flex',
+        justifyContent: 'center',
+        gap: '100px', // ระยะห่างระหว่างปุ่ม
       }}
       >
           {/* ปุ่มซ้าย */}
