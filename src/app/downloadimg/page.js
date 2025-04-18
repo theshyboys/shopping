@@ -51,6 +51,18 @@ const downloadImage = async () => {
   
 
 
+
+
+    const saveImages = (url) => {
+      const link = document.createElement("a");
+      link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
+      //link.download = url.id + "-" + url.name_en + "-" + getTimeNow() + ".png"; // ชื่อไฟล์ที่จะบันทึก
+      link.download = "abcdef.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
     const saveImageTest = () => {
       const link = document.createElement("a");
       link.href = "/product/grp05-2/content.png"; // ต้องเป็น path จาก public

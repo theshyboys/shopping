@@ -153,6 +153,33 @@ export default function ReceiptPage() {
     URL.revokeObjectURL(url);
   };
 
+  const handleDownloadContentToJPG = (items) => {
+    const img = new Image();
+    img.src = "/product/" + items.id + "/content.png"; // ต้องเป็น path จาก public
+    img.crossOrigin = 'Anonymous';
+    
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = items.id + "-" + items.name_en + "-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
+        link.target = '_blank'; // เปิดในแท็บใหม่ช่วยให้ iOS จัดการได้ดีขึ้น
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }, 'image/jpeg', 0.9);
+    };
+  };
+
   const saveImages = (url) => {
     const link = document.createElement("a");
     link.href = "/product/" + url.id + "/content.png"; // ต้องเป็น path จาก public
@@ -165,7 +192,7 @@ export default function ReceiptPage() {
 
 
   const saveAll = async () => {
-    await cart.map(saveImages);
+    await cart.map(handleDownloadContentToJPG);
   }
 
   const saveImageTest = () => {
