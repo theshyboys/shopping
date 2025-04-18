@@ -209,7 +209,7 @@ export default function ReceiptPage() {
 
 
   
-  const handleDownload = async () => {
+  const handleDownloadcc = async () => {
     if (receiptRef.current && (cartItemsCount > 0)) { 
       try {
         const options = {
@@ -293,7 +293,7 @@ export default function ReceiptPage() {
 
 
 
-  const handleDownload00 = async () => {
+  const handleDownload = async () => {
     if (receiptRef.current && (cartItemsCount > 0)) {
       const canvas = await html2canvas(receiptRef.current);
       const link = document.createElement("a");
