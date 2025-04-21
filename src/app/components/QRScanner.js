@@ -66,12 +66,12 @@ export default function QRScanner() {
         // ปรับสไตล์ video element ให้เต็มจอ
         const videoElement = document.querySelector("#reader video"); // as HTMLVideoElement;
         if (videoElement) {
-          videoElement.style.width = "100vw";
-          videoElement.style.height = "100vh";
-          videoElement.style.objectFit = "cover";
-          videoElement.style.position = "fixed";
-          videoElement.style.top = "0";
-          videoElement.style.left = "0";
+          //videoElement.style.width = "100vw";
+          //videoElement.style.height = "100vh";
+          //videoElement.style.objectFit = "cover";
+          //videoElement.style.position = "fixed";
+          //videoElement.style.top = "0";
+          //videoElement.style.left = "0";
         }
       } catch (err) {
         console.error("Failed to initialize scanner:", err);
