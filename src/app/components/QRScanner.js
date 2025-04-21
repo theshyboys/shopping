@@ -44,6 +44,13 @@ export default function QRScanner() {
           // เพิ่มการตั้งค่าเฉพาะสำหรับ iOS
           supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
           //formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]
+          // ใน config เพิ่ม
+          videoConstraints: {
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
+            facingMode: "environment",
+            focusMode: "continuous"
+          }
         };
 
         await scanner.start(
