@@ -63,3 +63,26 @@ body {
   font-family: "DB-PenThai-X", sans-serif;
 }
 
+#reader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index: 10; */
+  background: black;
+}
+
+#reader video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* สำหรับ Safari บน iOS */
+@supports (-webkit-touch-callout: none) {
+  #reader {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+  }
+}

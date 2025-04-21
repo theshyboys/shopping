@@ -37,9 +37,13 @@ export default function QRScanner() {
 
         const config = {
           fps: 10,
-          //qrbox: { width: 200, height: 200 },
+          qrbox: { width: 200, height: 200 },
           //rememberLastUsedCamera: true,
           //supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
+          rememberLastUsedCamera: true,
+          // เพิ่มการตั้งค่าเฉพาะสำหรับ iOS
+          supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
+          //formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]
         };
 
         await scanner.start(
@@ -58,24 +62,26 @@ export default function QRScanner() {
               errorMessage !==
               "QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code."
             ) {
-              //console.warn("QR Code scan error:", errorMessage);
+              console.warn("QR Code scan error:", errorMessage);
             }
           }
         );
 
         // ปรับสไตล์ video element ให้เต็มจอ
-        const videoElement = document.querySelector("#reader video"); // as HTMLVideoElement;
-        if (videoElement) {
-          videoElement.style.width = "100vw";
-          videoElement.style.height = "100vh";
-          videoElement.style.objectFit = "cover";
-          videoElement.style.position = "fixed";
-          videoElement.style.top = "0";
-          videoElement.style.left = "0";
-        }
+        // const videoElement = document.querySelector("#reader video"); // as HTMLVideoElement;
+        // if (videoElement) {
+        //   videoElement.style.width = "100vw";
+        //   videoElement.style.height = "100vh";
+        //   videoElement.style.objectFit = "cover";
+        //   videoElement.style.position = "fixed";
+        //   videoElement.style.top = "0";
+        //   videoElement.style.left = "0";
+        // }
       } catch (err) {
         console.error("Failed to initialize scanner:", err);
       }
+
+      
     };
 
     initScanner();
