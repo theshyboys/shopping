@@ -37,7 +37,7 @@ export default function QRScanner() {
 
         const config = {
           fps: 10,
-          qrbox: { width: 200, height: 200 },
+          //qrbox: { width: 200, height: 200 },
           //rememberLastUsedCamera: true,
           //supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
         };
