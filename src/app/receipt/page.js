@@ -542,20 +542,3 @@ export default function ReceiptPage() {
     </div>
   );
 }
-
-
-/**
- 
-      <button
-        className="fixed bottom-2 left-1/2 transform -translate-x-1/2  "
-        onClick={ScanPage}
-      >
-        <img
-          src="\images\BT-Scan Qr code.png"
-          alt="Click Me"
-          className="w-24 hover:opacity-80 transition"
-        />
-      </button>
-
-
- */

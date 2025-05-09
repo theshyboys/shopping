@@ -1,0 +1,120 @@
+id,name_th,name_en,zone_th,zone_en,status
+GRP05-2,เกลือ เครื่องปรุ่งคู่ครัวเรือน,Salt – An Essential Cooking Ingredient,ห้วงวิถีชีวิต,The way of life,read
+GRP05-3,ข้าวหอมมะลิขึ้นชื่อของจังหวัดยโสธร,The Famous Fragrant Jasmine Rice of Yasothon,ห้วงวิถีชีวิต,The way of life,read
+GRP05-4,ปลาแดกสุดนัว คู่ครัวรสแซ่บ,Pla Daek – A Delectable Seasoning Ingredient ,ห้วงวิถีชีวิต,The way of life,read
+GRP05-5,ปลาส้มต้นตำรับ ของฝากจากเมืองยโสธร,Pla Som – A Typical Food Souvenir of Yasothon,ห้วงวิถีชีวิต,The way of life,read
+GRP05-6,ปลาสด ๆ จากแม่น้ำชี แหล่งอาหารชั้นดีของชุมชน,Fresh fishes from the Chi River – Excellent Food Source of the Community,ห้วงวิถีชีวิต,The way of life,read
+GRP05-20,ลาน – เครื่องมือหาปลาพื้นบ้านของภาคอีสาน,Lan – A traditional Isan fishing tool,ห้วงวิถีชีวิต,The way of life,read
+GRP05-21,สุ่ม – เครื่องมือหาปลาพื้นบ้านของภาคอีสาน,Soom – A traditional Isan fishing tool,ห้วงวิถีชีวิต,The way of life,read
+GRP05-22,ไซ – เครื่องมือหาปลาพื้นบ้านของภาคอีสาน,Sai  – A traditional Isan fishing tool,ห้วงวิถีชีวิต,The way of life,read
+GRP05-23,ข้อง – เครื่องมือหาปลาพื้นบ้านของภาคอีสาน,Khong – A traditional Isan fishing tool,ห้วงวิถีชีวิต,The way of life,read
+GRP05-24,กะต่า (ตะกร้า) – เครื่องมือเครื่องใช้จำเป็นในครัวเรือนภาคอีสาน,Kata (Basket),ห้วงวิถีชีวิต,The way of life,read
+GRP05-12,ศาลเจ้าพ่อหลักเมืองยโสธร – ทำไมศาลหลักเมืองยโสธรจึงมี 3 เสา ?,Yasothon City Pillar Shrine – Why are there only three pillars in Yasothon City Pillar Shine?,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-13,หอมเหศักดิ์บ้านสิงห์ท่า – ญาพ่อเฒ่า ที่ชาวเมืองสิงห์ท่าสักการะบูชา,"Mahesak Shrine, Baan Singha Tha – Ya Poh Thao (City Rulers) Holy Place",ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-14,ศาลเจ้าปู่ยโสธร – ศาลผีผู้ปกปักรักษาพื้นที่ดั้งเดิม,Saan Chao Pu Yasothon –  The Guardian’s Spirit House ,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-15,ศาลเจ้าพ่อหอชุม – ศาลที่สิงสถิตผีจากเมืองลาว,Saan Chao Poh Hor Chum – Lao Spirits House ,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-16,หอเจ้าแม่สองนาง – ศาลผี ริมน้ำปกปักรักษาริมน้ำชี,Hor Chao Mae Song Nang – Spirit House of Two Chi River Goddesses,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-17,บุญบั้งไฟและพญาแถน,Bun Bang Fai Rocket Festival and Phaya Thaen,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-18,สิงห์หิน สิงห์คู่บ้านคู่เมืองยโสธร,Stone Guardian Lions of Yasothon City ,ความเชื่อพื้นถิ่น,Local beliefs ,read
+GRP05-25,เรือกระแซง – พาหนะขนส่งสินค้าลุ่มแม่น้ำชี,Krasang – A Water Transport in the Chi River Basin,สายน้ำแห่งโอกาส,River of Opportunity,read
+GRP05-26,เรือฉลอม – พาหนะขนส่งสินค้าลุ่มแม่น้ำชี,Chalom – A Water Transport in the Chi River Basin,สายน้ำแห่งโอกาส,River of Opportunity,read
+GRP06-1,เกิดเปลี่ยนแปลงครั้งใหญ่ในสังคมอีสาน,A Major Change in the Isan Society,คนต่างถิ่น,Outsiders,read
+GRP06-2,การเข้ามาของพ่อค้าต่างถิ่น,The Arrival of Foreign Traders ,คนต่างถิ่น,Outsiders,read
+GRP06-3,ทำเลที่ดีริมแม่น้ำชีส่งผลดีต่อการค้าขาย,Prime Business Locations along the Chi River ,คนต่างถิ่น,Outsiders,read
+GRP06-4,การค้าขายทางเกวียนโดยพ่อค้าชาวจีน,Chinese Merchants’ Cart Trade Routes ,คนต่างถิ่น,Outsiders,read
+GRP06-5,เส้นทางการค้าขายโคราช-บ้านสิงห์ท่า,The Korat-Baan Singha Tha Trade Route,ค้าขายโคราช,Trade with Korat ,read
+GRP06-6,เครือข่ายความสัมพันธ์พ่อค้าชาวจีน ,The Chinese Merchants’ Network ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-7,เร่ว – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Wurfbainia villosa – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-8,น้ำรัก – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Lac – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-9,ป่าน – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Hemp – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-10,ขี้ผึ้ง – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Beewax – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-11,ครั่ง – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Red Lac – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-12,หนังสัตว์และเขาสัตว์ – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังสยาม,Animal Skin and Horns – Baan Singha Tha’s export product to Siam,ค้าขายโคราช,Trade with Korat ,read
+GRP06-13,ใบชาจีน – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Chinese Tea Leaves – Chinese Merchants’ Import Product ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-14,ไม้ขีดไฟ – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Matches  – Chinese Merchants’ Import Product ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-15,น้ำมันก๊าด – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Kerosene – Chinese Merchants’ Import Product ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-16,ผักกาดดอง – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Pickled Mustard Greens – Chinese Merchants’ Import Product ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-18,ผ้าแพร – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Brocade Silk – Chinese Merchants’ Import Product ,ค้าขายโคราช,Trade with Korat ,read
+GRP06-19,ทำไมต้องเป็นบ้านดิน ?,Why Mud Houses?,พื้นที่ชีวิต,The melting pot ,read
+GRP06-20,โครงสร้างของบ้านดิน,The Structure of the Mud Houses ,พื้นที่ชีวิต,The melting pot ,read
+GRP06-21,ประโยชน์ของบ้านดิน,Benefits of Mud Houses ,พื้นที่ชีวิต,The melting pot ,read
+GRP06-22,การแต่งงานระหว่างคนจีนและคนพื้นถิ่น,Intermarriage between Chinese Men and Native Women,พื้นที่ชีวิต,The melting pot ,read
+GRP06-23,สิทธิพลเมืองที่บุตรจะได้รับประโยชน์,Rights Granted to Half-Chinese Children ,พื้นที่ชีวิต,The melting pot ,read
+GRP06-24,การเสี่ยงทายชีวิตคู่ที่อุดมสมบูรณ์,Traditions of Long and Happy Marriages,พื้นที่ชีวิต,The melting pot ,read
+GRP06-27,เรื่องเล่าจากก้อนดิน No.1,Tales from Mud Bricks No.1,พื้นที่ชีวิต,The melting pot ,read
+GRP06-27,เรื่องเล่าจากก้อนดิน No.2,Tales from Mud Bricks No.2,พื้นที่ชีวิต,The melting pot ,read
+GRP06-27,เรื่องเล่าจากก้อนดิน No.3,Tales from Mud Bricks No.3,พื้นที่ชีวิต,The melting pot ,read
+GRP06-28,เก้าอี้เลี้ยงเด็ก (ต้นแบบจากร้านยะโสธรพาณิชย์),The Baby Chair (The original design of Yasothon Panich Store),พื้นที่ชีวิต,The melting pot ,read
+GRP06-30,วัฒนธรรมการกินหมูของชาวจีน,Pork Consumption in Chinese Culture,กิน อยู่ คือ,The food culture,read
+GRP06-31,การค้าขายหมูของชาวจีนและคนในพื้นที่,Pig and Pork Markets ,กิน อยู่ คือ,The food culture,read
+GRP06-32,เจี๊ยะม้วย – วัฒนธรรมการกินที่แตกต่างของชนชาติต่าง ๆ ส่งผลต่อชีวิตและความเป็นอยู่,The Culture of Rice Porridge – Food cultures reflect Values and Ways of Life,กิน อยู่ คือ,The food culture,read
+GRP06-33,กินข้าวนำกัน – วัฒนธรรมการกินที่แตกต่างของชนชาติต่าง ๆ ส่งผลต่อชีวิตและความเป็นอยู่,“Kin Khao Nam Kan” – Food cultures reflect Values and Ways of Life,กิน อยู่ คือ,The food culture,read
+GRP06-34,ผัดหนังหมู (ฉ่าตือพ้วย : 猪皮),Stir Fried Pork Rinds (猪皮),กิน อยู่ คือ,The food culture,read
+GRP06-35,หมูสามชั้นตุ๋นผักกาดดอง (เคาหยก : 梅菜扣肉),Braised Pork Belly with Preserved Vegetables (梅菜扣肉),กิน อยู่ คือ,The food culture,read
+GRP06-36,ไส้หมูยัดข้าวเหนียว (จุกบี้ตือฮวง : 豬番糯米) ,Glutinous Rice Sausage (豬番糯米) ,กิน อยู่ คือ,The food culture,read
+GRP06-37,ขาหมูเย็น (ตือคาตั่ง : 猪脚冻),Pig’s Trotter Terrine (猪脚冻) ,กิน อยู่ คือ,The food culture,read
+GRP06-38,"ผักโขมจีนเคี่ยวใส่หมูสามชั้น (เขาะชุงฉ่าย : 洘杂菜 )
+",Mixed Vegetable Soup with Pork Belly (洘杂菜 ),กิน อยู่ คือ,The food culture,read
+GRP07-2,เหตุการณ์สำคัญในการอพยพของชาวญวน,Yuan People Migration ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-3,อาชีพของชาวญวนในพื้นที่ ,Local Yuan People and Their Occupations ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-4,วิถีชีวิตชาวญวนในสิงห์ท่า,Yuan People’s Way of Life in Baan Singha Tha,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-5,อาหารชาวญวน – ขนมจีนน้ำวัว เรื่องราวอาหารข้ามวัฒนธรรมในบ้านสิงห์ท่า,Yuan Cuisine  – Kanom Chin Nam Wua: Fusion Favors of Baan Singha Tha,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-6,น้ำปลา,Fish Sauce,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-7,ปี๊บน้ำดื่ม,Drinking Water Tanks,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-8,ปอ,Jute,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-9,สมุนไพรจีน,Chinese Herbs ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-10,ผ้าไตรจีวร,Monk’s Robes,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-11,สบู่,Sabu (Soaps),นานาร้านรวง,Variety of shops and stores ,read
+GRP07-12,สีย้อมผ้า – เรียก สี สไตล์อีสาน,Fabric Dyes – Unique Isan Words for Colors ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-13,ไหมดิบ,Raw Silk ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-14,ผ้าฝ้าย,Cotton,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-15,ขี้ไต้,Fire Starter Wax,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-16,สมุดข่อย,Folding-Book Manuscript,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-17,สียายอน (จุนสี),Copper Sulfate ,นานาร้านรวง,Variety of shops and stores ,read
+GRP07-19,ร้านสุรเวช,Suravej Store,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-20,ร้านยะโสธรพาณิชย์,Yasothon Panich Store,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-21,ร้านเอี่ยวฮวดสโตร์,Eiaw Huad Store,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-22,ร้านสมประสงค์,Som Prasong Store,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-23,ร้านสมกอสถาน,Som Ko Sathan Store,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-25,กระดานชนวน – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Slate – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-26,จอบ – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Garden Hoe – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-27,เสียม – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Shovel – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-28,ตะเกียง – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Lamp – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-29,น้ำมันก๊าด – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Kerosene Oil – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-30,ถ้วยชามกระเบื้อง – สินค้าที่พ่อค้าชาวจีนนำเข้ามาขายยังบ้านสิงห์ท่า,Porcelain Bowls – Products imported by the Chinese,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-31,ข้าวสาร – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น ,Rice – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-32,เนื้อหมู – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น,Pork – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-33,หวาย – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น,Rattan – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-34,หนังสัตว์-เขาสัตว์ – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น,Animal Skin and Horns – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-35,เส้นไหม – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น,Silk Threads – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP07-36,ป่าน – สินค้าส่งออกจากบ้านสิงห์ท่าไปขายยังต่างถิ่น,Hemp – Baan Singha Tha’s Export Product,ค้าขายอุบล,Trades with Ubon Ratchathani ,read
+GRP08-1,สมกอสถาน ใช่โรงฝิ่นจริงหรือ?,Was Som Ko Sathan once an Opium Den? ,ธุรกิจใหม่,New Businesses,read
+GRP08-2,“ยโสธรภาพยนตร์” โรงภาพยนตร์แห่งแรกของยโสธร,“Yasothon Theater” – The First Theater in Yasothon,ธุรกิจใหม่,New Businesses,read
+GRP08-3,เศรษฐกิจคึกคัก โรงบ่อนคึกครื้น ,Blooming Economy and Gambling Houses,ธุรกิจใหม่,New Businesses,read
+GRP08-4,งิ้วและหมอลำ 2 ขั้ววัฒนธรรมความบันเทิง ,Chinese Opera and Mor Lam – Entertainment of Two Cultures ,ธุรกิจใหม่,New Businesses,read
+GRP08-5,ร้านขายอุปกรณ์ปศุสัตว์ เอี่ยวฮวดสโตร์,Farm & Livestock Supplies Shop: Eiaw Huad Store ,ธุรกิจใหม่,New Businesses,read
+GRP08-6,ร้านถ่ายรูป สถานที่เก็บความทรงจำ,"Photo Studio, the Place for Lasting Memories",ธุรกิจใหม่,New Businesses,read
+GRP08-7,ร้านทอง ความมั่งคั่งของพ่อค้าชาวจีน,"Gold Shops, the Wealth of Chinese Merchants",ธุรกิจใหม่,New Businesses,read
+GRP08-8,ธุรกิจตัดเย็บเสื้อผ้า – เมื่อแฟชั่นไม่ได้จำกัดแค่บางกอก,Dressmaking – When Fashions Became De Rigueur Beyond Bangkok ,ธุรกิจใหม่,New Businesses,read
+GRP08-9,ลังโฟมร่มชูชีพซัพเสียงจากยโสธรภาพยนตร์,Aircraft Parachute Foam Boxes: Noise Absorbers in Yasothon Theater,ธุรกิจใหม่,New Businesses,read
+GRP08-13,บุหรี่ - ยาสูบ,Cigarettes – Tobacco,สินค้าสมัยนิยม,Trends,read
+GRP08-14,เครื่องสำอาง,Cosmetics,สินค้าสมัยนิยม,Trends,read
+GRP08-15,เสื้อผ้าสำเร็จรูป,Ready-to-Wear Clothes,สินค้าสมัยนิยม,Trends,read
+GRP08-16,เหล้าต่างประเทศ,Imported Liquors,สินค้าสมัยนิยม,Trends,read
+GRP08-17,วิทยุทรานซิสเตอร์,Transistor Radios,สินค้าสมัยนิยม,Trends,read
+GRP09-1,ภาพรวมสาเหตุของการขยายตัวของชุมชน,Overview of the causes of community expansion,กาลเวลาผันผ่าน,As Time Goes By,read
+GRP09-2,การขยายตัวของครอบครัว ,Growing families,กาลเวลาผันผ่าน,As Time Goes By,read
+GRP09-3,การขยายตัวของระบบสาธารณูปโภค,Utility Development,กาลเวลาผันผ่าน,As Time Goes By,read
+GRP09-4,การขยายตัวของความเจริญและธุรกิจต่าง ๆ,The Growth of Prosperity and Businesses,กาลเวลาผันผ่าน,As Time Goes By,read
+GRP09-5,การเปลี่ยนแปลงของโครงสร้างสังคมของรัฐ,Governmental and Social Structural Changes,กาลเวลาผันผ่าน,As Time Goes By,read
+GRP09-6,ยโสธรภาพยนตร์ –โรงภาพยนตร์แห่งแรกที่ยังคงสภาพดี,Yasothon Theater – The First Theater in Yasothon,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-7,ศาลเจ้าพ่อหลักเมืองยโสธร – สัญลักษณ์แห่งศรัทธา ความเชื่อและวิถีชีวิตของบ้านสิงห์ท่า,"Yasothon City Pillar Shrine – A symbol of the faith, beliefs, and way of life in Baan Singha Tha.",ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-8,ร้านยะโสธรพาณิชย์ – ร้านเก่าแก่ที่บรรจุความทรงจำของชุมชน,Yasothon Panich Store – A Shop Stocked with Memories,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-9,ร้านสมประสงค์ – Shophouse แลนด์มาร์กต้องห้ามพลาด,Som Prasong Store – A Must-See Landmark in Baan Singha Tha,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-10,ร้านสมกอสถาน – Shophouse นี้มีเรื่องเล่า,Som Ko Sathan Store – The Shop with a Story,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-11,บ้านดินโบราณข้ามกาลเวลา ,Discover the Charm of Baan Din Mud House – A Step Back in Time,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-12,ร้านสุรเวช – ร้านค้าส่งบุหรี่รายใหญ่ในความทรงจำ,Suravej Store – The city’s prominent wholesaler of cigarettes,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-13,มนูญบาร์เบอร์ – ร้านตัดผมในบ้านดินเก่าแก่,Manoon Barber – The local old Mud house barber shop,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-14,มูลนิธิรวมสามัคคียโสธร – ศูนย์รวมความสามัคคีของชาวจีนในยโสธร,The Ruam Samukhi Yasothon Foundation – The Center of Unity for the Chinese Community in Yasothon,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-15,หอมเหศักดิ์บ้านสิงห์ท่า – หอมเหศักดิ์ที่คนยโสธรเคารพบูชา,Mahesak Shrine Baan Singha Tha – A Key Place of Worship in Yasothon,ห้วงเวลาปัจจุบัน,Present day,read
+GRP09-16,ร้านแม่ขวัญ – ร้านอาหารตามสั่งในตึกดินโบราณ,Mae Kwan Restaurant – A feasting experience in an old mud houses,ห้วงเวลาปัจจุบัน,Present day,read

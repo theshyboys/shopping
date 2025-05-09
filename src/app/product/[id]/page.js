@@ -5,10 +5,32 @@ import Image from "next/image";
 import { useCart } from "../../context/CartContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Papa from 'papaparse';
+
 
 export default function ProductPage({ params }) {
   const unwrappedParams = use(params); // unwrap the Promise
   const id = (unwrappedParams.id).toLowerCase();
+
+// async function getPost(id) {
+//   const res = await fetch(`https://api.example.com/posts/${id}`)
+//   return res.json()
+// }
+
+// export async function generateStaticParams() {
+//   const posts = await fetch('https://api.example.com/posts').then((res) => res.json())
+  
+//   return posts.map((post) => ({
+//     id: post.id.toString(),
+//   }))
+// }
+
+// export default async  function ProductPage({ params }) {
+//   //const unwrappedParams = use(params); // unwrap the Promise
+//   //const id = (unwrappedParams.id).toLowerCase();
+
+//   const id = await getPost(params.id)
+
 
   const [product, setProduct] = useState(null);
   const [exist, setExist] = useState(false);
@@ -37,6 +59,7 @@ export default function ProductPage({ params }) {
     
     console.log("Screen resolution:", width + " x " + height);
 
+    /*
     fetch(filePath)
       .then((res) => res.json())
       .then((json) => {
@@ -52,6 +75,34 @@ export default function ProductPage({ params }) {
         setProduct(null);
         setLoading(false);
       });
+*/
+
+      fetch('/product/data.csv')
+        .then(res => res.text())
+        .then(csvText => {
+          const parsed = Papa.parse(csvText, {
+            header: true,
+            skipEmptyLines: true,
+          });
+
+        const matched = parsed.data.find(row => row.id === id.toUpperCase());
+        console.log("id :  ", id);
+        
+        if(matched){
+          setProduct(matched);
+          setLoading(false);
+          setExist(isExist(matched));
+          console.log("Exist is ", exist);
+          console.log("📄 JSON Data:", matched);
+         }else{
+          setProduct(null);
+          setLoading(false);
+          console.log("is not matched ");
+         }
+          //setData(matched || { message: 'ไม่พบข้อมูล' });
+        });
+
+
   }, [id]);
 
   const handleAddToCart = () => {

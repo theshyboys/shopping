@@ -20,7 +20,12 @@ const Receipt = (props) => {
       <p className="text-right">YASOTHON</p>
       <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
       <ul>
-        {props.order.map((item) => (
+        {
+        
+        //const order_sort = props.order.sort((a, b) => a.name.localeCompare(b.name));
+        
+        //props.order.map((item) => (
+        props.order.sort((a, b) => a.zone_en.localeCompare(b.zone_en)).map((item) => (
           <li key={item.id}>
             <p>{item.name_th}</p>
             <div className="flex justify-between ">
