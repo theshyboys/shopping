@@ -49,17 +49,65 @@ export default function CartPage() {
         className=" min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/05_Cart.png')" }}
       >
-        <div className="flex">
+
+
+        {/* <div className="flex">
           <Link
             href="/scan"
             className="py-5 px-8 text-2xl font-bold text-blue-600"
           >
             <img src={"/images/BT-Back.png"} className="h-4" />
           </Link>
-          <span className="px-27 py-4 font-dbpenthaix-normal text-[24px]">
+
+
+
+          <span className="px-0 py-4 font-dbpenthaix-normal text-[24px]">
             Cart
           </span>
+        </div> */}
+
+        <div 
+          className="fixed py-5  flex  items-center px-4"
+          style={{ 
+            margin: '0 auto',
+            left: '0',
+            right: '0',
+            justifyContent: 'center',
+            gap: '300px', // ระยะห่างระหว่างปุ่ม
+          }}
+        >
+          {/* ปุ่มซ้าย */}
+          <button  onClick={() => {
+              router.back()
+            }}>
+            <img
+              src="/images/BT-Back.png"
+              alt="Left Button"
+              className="h-4"
+            />
+          </button>
+
+
+
+          {/* ปุ่มขวา */}
+          <button 
+            style={{ position: 'relative' }}
+            onClick={() => {
+              router.push("/scan");
+            }}>
+            <img
+              src="/images/BT-Scan.png"
+              alt="Right Button"
+              className="h-6"
+            ></img>
+          </button>
         </div>
+
+        <div className=" py-4 font-dbpenthaix-Bold text-[30px] text-center">
+            Cart
+        </div>
+
+
         <div className="container mx-auto px-4 py-8">
           {cart.length === 0 ? (
             <div className="bg-white rounded-lg shadow-md p-8 text-center">
