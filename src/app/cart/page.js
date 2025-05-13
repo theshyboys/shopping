@@ -46,28 +46,11 @@ export default function CartPage() {
       }}
     >
       <div
-        className=" min-h-screen bg-cover bg-center"
+        className="fixed min-h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/images/05_Cart.png')" }}
       >
-
-
-        {/* <div className="flex">
-          <Link
-            href="/scan"
-            className="py-5 px-8 text-2xl font-bold text-blue-600"
-          >
-            <img src={"/images/BT-Back.png"} className="h-4" />
-          </Link>
-
-
-
-          <span className="px-0 py-4 font-dbpenthaix-normal text-[24px]">
-            Cart
-          </span>
-        </div> */}
-
         <div 
-          className="fixed py-5  flex  items-center px-4"
+          className="fixed py-10  flex  items-center px-4"
           style={{ 
             margin: '0 auto',
             left: '0',
@@ -88,6 +71,10 @@ export default function CartPage() {
           </button>
 
 
+        {/* <div className="z-0 py-4 font-dbpenthaix-Bold text-[30px] text-center" style={{ position: 'relative' }}>
+              Cart
+        </div> */}
+
 
           {/* ปุ่มขวา */}
           <button 
@@ -103,9 +90,11 @@ export default function CartPage() {
           </button>
         </div>
 
-        <div className=" py-4 font-dbpenthaix-Bold text-[30px] text-center">
-            Cart
-        </div>
+        <br/>
+        <br/>
+        <br/>
+
+       
 
 
         <div className="container mx-auto px-4 py-8">
@@ -119,7 +108,7 @@ export default function CartPage() {
           ) : (
 
             <div className="">
-              <div className=" max-h-screen overflow-y-scroll pt-0 pb-100 p-2">
+              <div className=" max-h-screen overflow-y-scroll pt-0 pb-100 p-2 z-10">
                 {cart.map((item) => (
                   <div key={item.id} className="flex  p-0">
                     <div className="flex items-center justify-center ">

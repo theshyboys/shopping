@@ -154,7 +154,7 @@ export default function ProductPage({ params }) {
         }}
       >
         <div 
-          className="fixed py-5  flex  items-center px-4"
+          className="fixed py-10  flex  items-center px-4"
           style={{ 
             margin: '0 auto',
             left: '0',
@@ -220,7 +220,7 @@ export default function ProductPage({ params }) {
        
 
 
-        <div className=" fixed pt-10 w-50 left-1/2 transform -translate-x-1/2">
+        <div className=" fixed pt-10 w-80 left-1/2 transform -translate-x-1/2">
           <img
             src={"/product/" + product.id + "/product.png"}
             className="w-full"
