@@ -154,16 +154,11 @@ export default function ProductPage({ params }) {
         }}
       >
         <div 
-//          className="fixed py-5 left-0 right-0 flex justify-between items-center px-4"
           className="fixed py-5  flex  items-center px-4"
           style={{ 
-            //maxWidth: '400px',
             margin: '0 auto',
-            //position: 'fixed',
-            //bottom: '20px',
             left: '0',
             right: '0',
-            //display: 'flex',
             justifyContent: 'center',
             gap: '300px', // ระยะห่างระหว่างปุ่ม
           }}
@@ -279,10 +274,7 @@ export default function ProductPage({ params }) {
          
           </div>
         ) : (
-          <button
-            onClick={() => {
-              router.push("/scan");
-            }}
+          <button 
             className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3"
           >
             <img src="\images\BT-Already in cart.png" alt="Click Me" />
