@@ -515,7 +515,7 @@ export default function ReceiptPage() {
           <button  onClick={() => {
               //combineAndDownload();
               saveAll();
-              handleDownload();              
+              //handleDownload();              
               //saveImageTest();
             }}>
             <img
