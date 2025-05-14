@@ -188,7 +188,7 @@ export default function ReceiptPage() {
     }
   };
 
-
+  let indexCount = 0;
   const DownloadProductToJPG = async (items) => {
     
     //const id = "grp05-2";
@@ -258,8 +258,9 @@ export default function ReceiptPage() {
       setTimeout(() => {
         link.click()
         document.body.removeChild(link)
-      }, index * 200); // 200ms หน่วงแต่ละคลิก
+      }, indexCount * 200); // 200ms หน่วงแต่ละคลิก
       
+      indexCount++;
     } catch (error) {
       console.error('Error combining images:', error);
       alert('เกิดข้อผิดพลาดในการรวมรูปภาพ');
@@ -350,6 +351,7 @@ export default function ReceiptPage() {
 
 
   const saveAll = async () => {
+    indexCount = 1;
     await cart.map(DownloadProductToJPG);
   }
 
