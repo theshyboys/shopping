@@ -258,7 +258,7 @@ export default function ReceiptPage() {
       setTimeout(() => {
         link.click()
         document.body.removeChild(link)
-      }, indexCount * 200); // 200ms หน่วงแต่ละคลิก
+      }, indexCount * 300); // 200ms หน่วงแต่ละคลิก
       
       indexCount++;
     } catch (error) {
@@ -523,7 +523,8 @@ export default function ReceiptPage() {
           <button  onClick={() => {
               //combineAndDownload();
               saveAll();
-              //handleDownload();              
+              handleDownload();    
+              ScanPage();          
               //saveImageTest();
             }}>
             <img
