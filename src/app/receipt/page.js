@@ -251,8 +251,14 @@ export default function ReceiptPage() {
       link.href = imageData;
       link.download = items.id + "-" + items.name_en + "-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
       document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // link.click();
+      // document.body.removeChild(link);
+
+      // เพื่อให้เบราว์เซอร์ไม่บล็อกหลายคลิกพร้อมกัน
+      setTimeout(() => {
+        link.click()
+        document.body.removeChild(link)
+      }, index * 200); // 200ms หน่วงแต่ละคลิก
       
     } catch (error) {
       console.error('Error combining images:', error);
