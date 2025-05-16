@@ -656,10 +656,10 @@ function canvasToBlob(canvas) {
       >
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              //saveAll();
-              //handleDownload();    
+              saveAll();
+              handleDownload();    
               
-              SaveToZip();
+              //SaveToZip();
               ScanPage();     
             }}>
             <img
