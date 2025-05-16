@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "date-fns": "^4.1.0",
+    "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "html5-qrcode": "^2.3.8",
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
+    "jszip": "^3.10.1",
     "next": "15.2.4",
     "papaparse": "^5.5.2",
     "react": "^19.0.0",

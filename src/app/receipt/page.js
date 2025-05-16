@@ -1,12 +1,15 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { React,useRef, useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import Receipt from "../components/Receipt";
 import { useRouter } from "next/navigation";
 import { useCart } from "../context/CartContext";
 import { format } from "date-fns";
 import jsPDF from "jspdf";
+
+import JSZip from 'jszip'
+import { saveAs } from 'file-saver'
 
 export default function ReceiptPage() {
   const receiptRef = useRef(null);
@@ -247,13 +250,14 @@ export default function ReceiptPage() {
 
       // แปลงเป็น JPG และดาวน์โหลด
       const imageData = canvas.toDataURL('image/jpeg', 0.95);
+
+
       const link = document.createElement('a');
       link.href = imageData;
       link.download = items.id + "-" + items.name_en + "-" + getTimeNow() + ".jpg"; // ชื่อไฟล์ที่จะบันทึก
       document.body.appendChild(link);
       // link.click();
       // document.body.removeChild(link);
-
       // เพื่อให้เบราว์เซอร์ไม่บล็อกหลายคลิกพร้อมกัน
       setTimeout(() => {
         link.click()
@@ -269,6 +273,96 @@ export default function ReceiptPage() {
     }
   };
 
+
+
+  const MakeProductToJPG = async (items,zip) => {
+
+
+    console.log("MakeProductToJPG ID : ", items.id);
+
+    const imagePaths = [
+      '/images/BG_Product.png',
+      '/product/'+ items.id + '/product.png',
+      '/product/'+ items.id + '/content.png'
+    ];
+    
+    try {
+      // รอให้รูปภาพโหลดเสร็จทั้งหมด
+      const loadedImages = await Promise.all(
+        imagePaths.map(src => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(img);
+          });
+        })
+      );
+
+      // สร้าง Canvas สำหรับรูปภาพรวม
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+ 
+      
+      // คำนวณขนาด Canvas
+      const maxWidth = Math.max(...loadedImages.map(img => img.width));
+      const totalHeight = loadedImages[1].height + loadedImages[2].height;//loadedImages.reduce((sum, img) => sum + img.height, 0);
+      
+      canvas.width = maxWidth;
+      canvas.height = totalHeight;
+      
+
+      // เติมพื้นหลังสีขาว
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+           
+      // วาดรูปภาพลงบน Canvas
+      let currentY = 50;
+      const spacing = 30; // ระยะห่างระหว่างรูป
+      let i = 0;
+      loadedImages.forEach(img => {
+        if(i == 0){
+          ctx.drawImage(img, 0, 0);
+        }else{
+          const x = (canvas.width - img.width) / 2;
+          ctx.drawImage(img, x, currentY);
+          currentY += img.height + spacing;
+        }
+        i++;
+        
+      });
+
+      console.log("จะแปลงรูปแล้วน้าาา");
+
+      // แปลงเป็น JPG และดาวน์โหลด
+      //const imageData = canvas.toDataURL('image/jpeg', 0.95);
+
+
+      
+      const filename = items.id + "-" + items.name_en + "-" + getTimeNow() + ".png"; // ชื่อไฟล์ที่จะบันทึก
+      //folder.file(filename, imageData);
+
+      const blob = await canvasToBlob(canvas);
+      zip.file(filename, blob)
+      console.log("เรียบร้อย");
+
+    } catch (error) {
+      console.error('Error combining images:', error);
+      alert('เกิดข้อผิดพลาดในการรวมรูปภาพ');
+    } finally {
+      //console.log("เกิดข้อผิดพลาดในการรวมรูปภาพ นะจ๊ะ");
+    }
+  };
+
+
+function canvasToBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) resolve(blob)
+      else reject(new Error('Canvas toBlob failed'))
+    }, 'image/png')
+  })
+}
 
 
   const downloadImage = async () => {
@@ -353,6 +447,43 @@ export default function ReceiptPage() {
   const saveAll = async () => {
     indexCount = 1;
     await cart.map(DownloadProductToJPG);
+  }
+
+
+  const images1 = ['BG.png', 'Barcode.png', 'BT-Scan.png'] // รูปที่อยู่ใน public/images/
+
+
+
+ const SaveToZip = async () => {
+    const zip = new JSZip()
+
+     for (const items of cart) {
+        MakeProductToJPG(items, zip)
+     }
+
+  //  for (const filename of images1) {
+  //     const response = await fetch(`/images/${filename}`)
+  //     const blob = await response.blob()
+  //     zip.file(filename, blob)
+  //   }
+
+    
+
+    if (receiptRef.current && (cartItemsCount > 0)) {
+      const canvas = await html2canvas(receiptRef.current);
+      const blob = await canvasToBlob(canvas);
+      const fn = "Receipt-" + getTimeNow() + ".png";
+      zip.file(fn, blob)
+    }
+
+    ///console.log("zip : ");
+    //console.log(zip);
+
+    const zipBlob = await zip.generateAsync({ type: 'blob' })
+
+    const filename = "shopping-data-" + getTimeNow() + '.zip'; // ชื่อไฟล์ที่จะบันทึก
+
+    saveAs(zipBlob, filename)
   }
 
   const saveImageTest = () => {
@@ -465,6 +596,10 @@ export default function ReceiptPage() {
     clearCart();
   };
 
+
+
+
+
   const ScanPage = () => {
     router.push(`/`);
     clearCart();
@@ -521,11 +656,11 @@ export default function ReceiptPage() {
       >
           {/* ปุ่มซ้าย */}
           <button  onClick={() => {
-              //combineAndDownload();
-              saveAll();
-              handleDownload();    
-              ScanPage();          
-              //saveImageTest();
+              //saveAll();
+              //handleDownload();    
+              
+              SaveToZip();
+              ScanPage();     
             }}>
             <img
               src="/images/BT-Save photo.png"
