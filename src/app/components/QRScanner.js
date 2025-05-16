@@ -23,7 +23,8 @@ export default function QRScanner() {
         setHasPermission(true);
       } catch (err) {
         setHasPermission(false);
-        router.push(`/`);
+       // router.push(`/`);
+       alert('ไม่สามารถเข้าถึงกล้องได้ หรือผู้ใช้ไม่อนุญาต')
       }
     }
 
