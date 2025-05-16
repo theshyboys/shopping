@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function QRScanner() {
-  const scannerRef = useRef(null); 
+  const scannerRef = useRef(null);
   const videoRef = useRef(null);
   const router = useRouter();
   const hasRun = useRef(false);
@@ -16,32 +16,37 @@ export default function QRScanner() {
     if (hasRun.current) return;
     hasRun.current = true;
 
-    
-    const requestCamera2 = async () => {
+    const requestCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, })
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "environment" },
+        });
         setHasPermission(true);
       } catch (err) {
         setHasPermission(false);
-       // router.push(`/`);
-       alert('ไม่สามารถเข้าถึงกล้องได้ หรือผู้ใช้ไม่อนุญาต หากไม่แสดง popup ถามสิทธิ์กล้อง กรุณาเคลียร์สิทธิ์ใน settings ของเบราว์เซอร์')
+        // router.push(`chrome://settings/content/camera`);
+        alert(
+          "ไม่สามารถเข้าถึงกล้องได้ หรือผู้ใช้ไม่อนุญาต หากไม่แสดง popup ถามสิทธิ์กล้อง กรุณาเคลียร์สิทธิ์ใน settings ของเบราว์เซอร์"
+        );
       }
-    }
+    };
 
-    const requestCamera = async () => {
+    const requestCamera1 = async () => {
       // ปิดกล้องเดิม (ถ้ามี)
-      const oldStream = videoRef.current?.srcObject
-      oldStream?.getTracks().forEach((track) => track.stop())
+      const oldStream = videoRef.current?.srcObject;
+      oldStream?.getTracks().forEach((track) => track.stop());
 
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true })
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
         if (videoRef.current) {
-          videoRef.current.srcObject = stream
+          videoRef.current.srcObject = stream;
         }
       } catch (err) {
-        alert('ไม่ได้รับอนุญาตให้ใช้กล้อง กรุณาอนุญาตใหม่')
+        alert("ไม่ได้รับอนุญาตให้ใช้กล้อง กรุณาอนุญาตใหม่");
       }
-    }
+    };
 
     console.log("useEffect QRScanner");
     const initScanner = async () => {
@@ -51,18 +56,18 @@ export default function QRScanner() {
         console.log("Init Html5Qrcode");
 
         // ขอสิทธิ์ในการใช้กล้อง
-        /*try {
+        try {
           await navigator.mediaDevices.getUserMedia({
             video: { facingMode: "environment" },
           });
           setHasPermission(true);
         } catch (err) {
-          console.error("Camera permission denied:", err);
+          alert("ไม่ได้รับอนุญาตให้ใช้กล้อง กรุณาอนุญาตใหม่");
           setHasPermission(false);
           return;
-        }*/
+        }
 
-        requestCamera();
+        //requestCamera();
 
         const config = {
           fps: 10,
@@ -78,8 +83,8 @@ export default function QRScanner() {
             width: { ideal: 1280 },
             height: { ideal: 720 },
             facingMode: "environment",
-            focusMode: "continuous"
-          }
+            focusMode: "continuous",
+          },
         };
 
         await scanner.start(
@@ -116,8 +121,6 @@ export default function QRScanner() {
       } catch (err) {
         console.error("Failed to initialize scanner:", err);
       }
-
-      
     };
 
     initScanner();
@@ -154,15 +157,9 @@ export default function QRScanner() {
     }
   };
 
+
   return (
-    <div 
-      className="relative w-screen h-screen overflow-hidden"
-      //className=" w-full h-full"
-      // style={{ 
-      //   maxWidth: '500px',
-      //   margin: '0 auto',
-      // }}
-    >
+    <div className="relative w-screen h-screen overflow-hidden">
       {/* Container สำหรับ Html5Qrcode */}
       <div id="reader" ref={videoRef} className="w-full h-full" />
 
