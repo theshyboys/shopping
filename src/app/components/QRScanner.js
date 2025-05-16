@@ -17,14 +17,29 @@ export default function QRScanner() {
     hasRun.current = true;
 
     
-    const requestCamera = async () => {
+    const requestCamera2 = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, })
         setHasPermission(true);
       } catch (err) {
         setHasPermission(false);
        // router.push(`/`);
-       alert('ไม่สามารถเข้าถึงกล้องได้ หรือผู้ใช้ไม่อนุญาต')
+       alert('ไม่สามารถเข้าถึงกล้องได้ หรือผู้ใช้ไม่อนุญาต หากไม่แสดง popup ถามสิทธิ์กล้อง กรุณาเคลียร์สิทธิ์ใน settings ของเบราว์เซอร์')
+      }
+    }
+
+    const requestCamera = async () => {
+      // ปิดกล้องเดิม (ถ้ามี)
+      const oldStream = videoRef.current?.srcObject
+      oldStream?.getTracks().forEach((track) => track.stop())
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true })
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream
+        }
+      } catch (err) {
+        alert('ไม่ได้รับอนุญาตให้ใช้กล้อง กรุณาอนุญาตใหม่')
       }
     }
 
