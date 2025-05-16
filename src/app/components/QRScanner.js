@@ -16,6 +16,17 @@ export default function QRScanner() {
     if (hasRun.current) return;
     hasRun.current = true;
 
+    
+    const requestCamera = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, })
+        setHasPermission(true);
+      } catch (err) {
+        setHasPermission(false);
+        router.push(`/`);
+      }
+    }
+
     console.log("useEffect QRScanner");
     const initScanner = async () => {
       try {
@@ -24,7 +35,7 @@ export default function QRScanner() {
         console.log("Init Html5Qrcode");
 
         // ขอสิทธิ์ในการใช้กล้อง
-        try {
+        /*try {
           await navigator.mediaDevices.getUserMedia({
             video: { facingMode: "environment" },
           });
@@ -33,7 +44,9 @@ export default function QRScanner() {
           console.error("Camera permission denied:", err);
           setHasPermission(false);
           return;
-        }
+        }*/
+
+        requestCamera();
 
         const config = {
           fps: 10,
