@@ -68,7 +68,7 @@ const Receipt = (props) => {
 
       <div className="relative   h-[200px]">
         <img src="/images/LineWater.png" alt="Base" className="absolute left-10 z-10" />
-        <img src="/images/QRcode.png" alt="Overlay" className="absolute w-50 left-1/2 transform -translate-x-1/2 z-20" />
+        <img src="/images/QRcode.png" alt="Overlay" className="absolute w-50 left-1/2 transform -translate-x-1/2 z-11" />
       </div>
 
       <div className="p-4 flex items-center justify-center ">
