@@ -330,8 +330,8 @@ export default function ReceiptPage() {
 
     const imagePaths = [
       "/images/BG_Product.png",
-      "/product/" + items.id + "/product.png",
       "/product/" + items.id + "/content.png",
+      "/product/" + items.id + "/product.png",
     ];
 
     try {
@@ -367,11 +367,26 @@ export default function ReceiptPage() {
       let i = 0;
       loadedImages.forEach((img) => {
         if (i == 0) {
-          ctx.drawImage(img, 0, 0);
-        } else {
-          const x = (canvas.width - img.width) / 2;
-          ctx.drawImage(img, x, currentY);
-          currentY += img.height + spacing;
+          const s = canvas.width / img.width;
+          const w = img.width * s;
+          const h = img.height * s;
+          const x = (canvas.width - w) / 2;
+          ctx.drawImage(img, x, 0,w,h);
+        } else if (i == 1) {         
+          const s = canvas.width / img.width;
+          const w = img.width * s;
+          const h = img.height * s;
+          const x = (canvas.width - w) / 2;
+          currentY = 720 + spacing;
+          ctx.drawImage(img, 0, currentY,w,h);
+          
+        } else {         
+          const s = 0.8 * canvas.width / img.width;
+          const w = img.width * s;
+          const h = img.height * s;
+          const x = (canvas.width - w) / 2;
+          currentY = spacing;
+          ctx.drawImage(img, x, currentY,w,h);          
         }
         i++;
       });
