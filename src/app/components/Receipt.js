@@ -53,22 +53,9 @@ const Receipt = (props) => {
       </div>
       <br />
 
-      {/* <div className=" flex items-center justify-center ">
-        <img src="\images\LineWater.png" alt="Logo" className="w-50 " />
-        <img src="\images\QR Code.png" alt="Logo" className="w-50 " />
-      </div> */}
-
-
-
-      {/* <div className="relative w-[300px] h-[300px]">
-        <img src="/images/LineWater.png" alt="Base" className="absolute top-0 left-0 z-10" />
-        <img src="/images/QR Code.png" alt="Overlay" className="absolute top-0 left-0 z-20" />
-      </div> */}
-
-
-      <div className="relative   h-[200px]">
-        <img src="/images/LineWater.png" alt="Base" className="absolute left-10 z-10" />
-        <img src="/images/QRcode.png" alt="Overlay" className="absolute w-50 left-1/2 transform -translate-x-1/2 z-11" />
+      <div className="relative h-[200px]">
+        <img src="/images/LineWater.png" alt="Base" className="absolute left-10 " />
+        <img src="/images/QRcode.png" alt="Overlay" className="absolute w-50 left-1/2 transform -translate-x-1/2 " />
       </div>
 
       <div className="p-4 flex items-center justify-center ">
