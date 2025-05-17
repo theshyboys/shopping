@@ -6,7 +6,7 @@ import { CartProvider } from "./context/CartContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Singhata Shop",
+  title: "SINGHA THA SHOP",
   description: "Scan QR codes to shop products quickly",
 };
 
