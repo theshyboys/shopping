@@ -48,13 +48,27 @@ const Receipt = (props) => {
 
       <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
 
-      <div className="pt-4 flex items-center justify-center ">
+      <div className="pt-3 flex items-center justify-center ">
         <h2>THANK YOU FOR VISITING</h2>
       </div>
       <br />
 
-      <div className=" flex items-center justify-center ">
-        <img src="\images\QRLINK.png" alt="Logo" className="w-50 " />
+      {/* <div className=" flex items-center justify-center ">
+        <img src="\images\LineWater.png" alt="Logo" className="w-50 " />
+        <img src="\images\QR Code.png" alt="Logo" className="w-50 " />
+      </div> */}
+
+
+
+      {/* <div className="relative w-[300px] h-[300px]">
+        <img src="/images/LineWater.png" alt="Base" className="absolute top-0 left-0 z-10" />
+        <img src="/images/QR Code.png" alt="Overlay" className="absolute top-0 left-0 z-20" />
+      </div> */}
+
+
+      <div className="relative   h-[200px]">
+        <img src="/images/LineWater.png" alt="Base" className="absolute left-10 z-10" />
+        <img src="/images/QR Code.png" alt="Overlay" className="absolute w-50 left-1/2 transform -translate-x-1/2 z-20" />
       </div>
 
       <div className="p-4 flex items-center justify-center ">
@@ -62,7 +76,7 @@ const Receipt = (props) => {
       </div>
 
       <p>ประสบการณ์ Shopping Online</p>
-      <p>สินค้าจาก SINGHA THA ONLINE</p>
+      <p>สินค้าจาก SINGHA THA MUSEUM</p>
       <p>#shoppingวันวานจากสิงห์ท่า #singhathamuseum</p>
 
       <br />
