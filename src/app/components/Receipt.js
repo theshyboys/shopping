@@ -41,7 +41,7 @@ const Receipt = (props) => {
 
       <hr className="my-2" style={{ borderTop: '1px solid rgb(240, 86, 86)' }} />
 
-      <div className="flex justify-between ">
+      <div className="flex justify-between pb-2">
         <span>ITEM COUNT : </span>
         <span>{props.order.length}</span>
       </div>
