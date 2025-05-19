@@ -547,14 +547,14 @@ export default function ReceiptPage() {
     const filename = "shopping-data-" + getTimeNow() + ".pdf"; // ชื่อไฟล์ที่จะบันทึก
 
     //--- Download with save ----//
-    //pdf?.save(filename)
+    pdf?.save(filename)
 
 
 
 
     //---  Download with download a ---//
-    const blob = pdf.output('blob')
-    const url = URL.createObjectURL(blob)
+    // const blob = pdf.output('blob')
+    // const url = URL.createObjectURL(blob)
 
     // const link = document.createElement("a");
     // link.href = url;
@@ -562,9 +562,7 @@ export default function ReceiptPage() {
     // document.body.appendChild(link);
     // link.click();
     // document.body.removeChild(link);
-
-
-    window.open(url, '_blank')
+    //window.open(url, '_blank')
     
   };
 
