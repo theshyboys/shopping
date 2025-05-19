@@ -545,7 +545,23 @@ export default function ReceiptPage() {
       pdf?.addImage(imageData, 'JPEG', 0, 0, imgWidthMm, imgHeightMm)
     }
     const filename = "shopping-data-" + getTimeNow() + ".pdf"; // ชื่อไฟล์ที่จะบันทึก
-    pdf?.save(filename)
+
+    //--- Download with save ----//
+    //pdf?.save(filename)
+
+
+
+
+    //---  Download with download a ---//
+    const blob = pdf.output('blob')
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename; // ชื่อไฟล์ที่จะบันทึก
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
   };
 
 
