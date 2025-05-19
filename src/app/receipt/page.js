@@ -555,12 +555,16 @@ export default function ReceiptPage() {
     //---  Download with download a ---//
     const blob = pdf.output('blob')
     const url = URL.createObjectURL(blob)
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename; // ชื่อไฟล์ที่จะบันทึก
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+
+    // const link = document.createElement("a");
+    // link.href = url;
+    // link.download = filename; // ชื่อไฟล์ที่จะบันทึก
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
+
+
+    window.open(url, '_blank')
     
   };
 
