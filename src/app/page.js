@@ -35,31 +35,40 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router = useRouter();
   const [deviceType, setDeviceType] = useState('---');
-
+  let this_device = '';
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     if (/android/i.test(userAgent)) {
       setDeviceType('android');
-      console.log('android');
-      router.push('intent://shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
+      this_device = 'android';
+      //console.log('android');
+      //router.push('intent://shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
     } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
       setDeviceType('ios');
-      console.log('ios');
-      router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
-      //router.push('https://www.google.com');
+      this_device = 'ios';
+      //console.log('ios');
+      //router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
     }else{
       console.log('desktop');
       setDeviceType('desktop');
-      router.push('https://shopping-one-alpha.vercel.app/scan');
+      //this_device = 'desktop';
+      //router.push('https://shopping-one-alpha.vercel.app/scan');
     }
 
     //console.log(deviceType);
 
-    /*const timer = setTimeout(() => {
-      console.log(deviceType);
-    }, 5000);
+    const timer = setTimeout(() => {
+      console.log(this_device);
+      if(this_device == 'android'){       
+        router.push('intent://shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
+      }else if(this_device == 'ios'){
+        router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
+      }else{
+        router.push('https://shopping-one-alpha.vercel.app/scan');
+      }
+    }, 2000);
     return () => clearTimeout(timer);
-*/
+
 
   }, []);
 
