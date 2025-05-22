@@ -1,7 +1,5 @@
 "use client";
 
-import SplashScreen from "./splash";
-import ScanPage from "./scan/page"
 
 /*
 echo "# shopping" >> README.md
@@ -31,15 +29,45 @@ https://th.qr-code-generator.com/
 
 
 */
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
- // const router = useRouter();
+  const router = useRouter();
+  const [deviceType, setDeviceType] = useState('---');
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+      setDeviceType('android');
+      console.log('android');
+      router.push('intent://www.shopping-one-alpha.vercel.app/splash#Intent;scheme=https;package=com.android.chrome;end');
+    } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+      setDeviceType('ios');
+      console.log('ios');
+      router.push('googlechrome://www.shopping-one-alpha.vercel.app/splash');
+      //router.push('https://www.google.com');
+    }else{
+      console.log('desktop');
+      setDeviceType('desktop');
+      router.push('https://www.google.com');
+    }
+
+    //console.log(deviceType);
+
+    /*const timer = setTimeout(() => {
+      console.log(deviceType);
+    }, 5000);
+    return () => clearTimeout(timer);
+*/
+
+  }, []);
+
+
   return (
-    <>
     <div>
-      <SplashScreen />
-      {/* <ScanPage/> */}
-    </div>s
-    </>
+      <h1>Welcome</h1>
+      <p>You are using: {deviceType}</p>
+    </div>
   );
 }
