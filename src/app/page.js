@@ -41,11 +41,11 @@ export default function Home() {
     if (/android/i.test(userAgent)) {
       setDeviceType('android');
       console.log('android');
-      router.push('intent://www.shopping-one-alpha.vercel.app/splash#Intent;scheme=https;package=com.android.chrome;end');
+      router.push('intent://www.shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
     } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
       setDeviceType('ios');
       console.log('ios');
-      router.push('googlechrome://www.shopping-one-alpha.vercel.app/splash');
+      router.push('googlechrome://www.shopping-one-alpha.vercel.app/scan');
       //router.push('https://www.google.com');
     }else{
       console.log('desktop');
