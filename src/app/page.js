@@ -36,8 +36,12 @@ export default function Home() {
   const router = useRouter();
   const [deviceType, setDeviceType] = useState('---');
   let this_device = '';
+  let isChrome = '';
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    isChrome = /CriOS/i.test(userAgent);
+
     if (/android/i.test(userAgent)) {
       setDeviceType('android');
       this_device = 'android';
@@ -62,7 +66,11 @@ export default function Home() {
       if(this_device == 'android'){       
         router.push('intent://shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
       }else if(this_device == 'ios'){
-        router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
+        if(isChrome){
+          router.push('/scan');
+        }else{
+          router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
+        }
       }else{
         router.push('https://shopping-one-alpha.vercel.app/scan');
       }
