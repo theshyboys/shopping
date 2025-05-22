@@ -669,7 +669,7 @@ export default function ReceiptPage() {
   };
 
   const ScanPage = () => {
-    router.push(`/`);
+    router.push(`/splash`);
     clearCart();
   };
 
