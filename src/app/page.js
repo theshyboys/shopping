@@ -73,8 +73,8 @@ export default function Home() {
           //}
           // หากไม่สำเร็จภายใน 1.5 วินาที ให้เปลี่ยนเส้นทางไปยัง App Store
           setTimeout(() => {
-            setHaveChrome(false);
             alert("This app cannot open with Chrome. So it will open with Safari");
+            setHaveChrome(false);
             router.push('/scan');
           }, 1500);
         }
