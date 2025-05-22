@@ -66,6 +66,7 @@ export default function Home() {
           window.location = 'googlechrome://shopping-one-alpha.vercel.app/scan';
           // หากไม่สำเร็จภายใน 1.5 วินาที ให้เปลี่ยนเส้นทางไปยัง App Store
           setTimeout(() => {
+            alert("App chrome not install, It will use Safari");
             router.push('/scan');
           }, 1500);
         }
