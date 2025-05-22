@@ -61,7 +61,13 @@ export default function Home() {
         if(isChrome){
           router.push('/scan');
         }else{
-          router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
+          //router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
+          // พยายามเปิดแอป Chrome
+          window.location = 'googlechrome://shopping-one-alpha.vercel.app/scan';
+          // หากไม่สำเร็จภายใน 1.5 วินาที ให้เปลี่ยนเส้นทางไปยัง App Store
+          setTimeout(() => {
+            router.push('/scan');
+          }, 1500);
         }
       }else{
         router.push('/scan');
