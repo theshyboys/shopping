@@ -63,11 +63,12 @@ export default function Home() {
 
   }, []);
 
-
   return (
     <div>
-      <h1>Welcome</h1>
-      <p>You are using: {deviceType}</p>
-    </div>
+      <div
+        className="flex flex-col items-center  min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/Splash.png')" }}>
+       </div>
+    </div>    
   );
 }
