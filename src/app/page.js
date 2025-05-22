@@ -31,11 +31,13 @@ https://th.qr-code-generator.com/
 */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useCart } from "../../context/CartContext";
+
 
 export default function Home() {
+  const { haveChrome ,setHaveChrome } = useCart();
   const router = useRouter();
   const [deviceType, setDeviceType] = useState('---');
-  const [haveChrome, setHaveChrome] = useState(true);
 
   let this_device = '';
   let isChrome = '';

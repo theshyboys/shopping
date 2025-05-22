@@ -6,6 +6,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [haveChome, setHaveChrome] = useState(true);
 
   // Load cart from localStorage on client side only
   useEffect(() => {
