@@ -68,13 +68,13 @@ export default function Home() {
           //router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
           // พยายามเปิดแอป Chrome
           //if(haveChrome){
-            alert("Open Chrome"); 
+            //alert("Open Chrome"); 
             window.location = 'googlechrome://shopping-one-alpha.vercel.app/scan';
           //}
           // หากไม่สำเร็จภายใน 1.5 วินาที ให้เปลี่ยนเส้นทางไปยัง App Store
           setTimeout(() => {
-            alert("This app cannot open with Chrome. So it will open with Safari");
-            //setHaveChrome(false);
+            //alert("This app cannot open with Chrome. So it will open with Safari");
+            setHaveChrome(false);
             router.push('/scan');
           }, 1500);
         }

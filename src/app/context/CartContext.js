@@ -72,6 +72,11 @@ export function CartProvider({ children }) {
     setCart([]);
   };
 
+
+  // const setChrome = (val) => {
+  //   setHaveChrome(val);
+  // };  
+
   return (
     <CartContext.Provider
       value={{
@@ -82,6 +87,8 @@ export function CartProvider({ children }) {
         clearCart,
         isExist,
         loadCart,
+        haveChome,
+        setHaveChrome,
       }}
     >
       {children}
