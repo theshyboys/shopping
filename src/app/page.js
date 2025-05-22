@@ -35,6 +35,8 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router = useRouter();
   const [deviceType, setDeviceType] = useState('---');
+  const [haveChrome, setHaveChrome] = useState(true);
+
   let this_device = '';
   let isChrome = '';
   useEffect(() => {
@@ -63,10 +65,13 @@ export default function Home() {
         }else{
           //router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
           // พยายามเปิดแอป Chrome
-          window.location = 'googlechrome://shopping-one-alpha.vercel.app/scan';
+          if(haveChrome){
+            window.location = 'googlechrome://shopping-one-alpha.vercel.app/scan';
+          }
           // หากไม่สำเร็จภายใน 1.5 วินาที ให้เปลี่ยนเส้นทางไปยัง App Store
           setTimeout(() => {
-            alert("App chrome not install, It will use Safari");
+            setHaveChrome(false);
+            //alert("This app cannot open with Chrome. So it will open with Safari");
             router.push('/scan');
           }, 1500);
         }
