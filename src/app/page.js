@@ -2,6 +2,10 @@
 
 
 /*
+
+Dev : Teera Yoosuk
+Date : 01/02/25
+
 echo "# shopping" >> README.md
 git init
 git add .
