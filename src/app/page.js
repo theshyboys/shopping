@@ -45,21 +45,13 @@ export default function Home() {
     if (/android/i.test(userAgent)) {
       setDeviceType('android');
       this_device = 'android';
-      //console.log('android');
-      //router.push('intent://shopping-one-alpha.vercel.app/scan#Intent;scheme=https;package=com.android.chrome;end');
     } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
       setDeviceType('ios');
       this_device = 'ios';
-      //console.log('ios');
-      //router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
     }else{
       console.log('desktop');
       setDeviceType('desktop');
-      //this_device = 'desktop';
-      //router.push('https://shopping-one-alpha.vercel.app/scan');
     }
-
-    //console.log(deviceType);
 
     const timer = setTimeout(() => {
       console.log(this_device);
@@ -72,7 +64,7 @@ export default function Home() {
           router.push('googlechrome://shopping-one-alpha.vercel.app/scan');
         }
       }else{
-        router.push('https://shopping-one-alpha.vercel.app/scan');
+        router.push('/scan');
       }
     }, 2000);
     return () => clearTimeout(timer);
