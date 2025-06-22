@@ -732,7 +732,7 @@ export default function ReceiptPage() {
           }}
         >
           <img
-            src="/images/BT-Save photo.png"
+            src="/images/BT-Save-photo.png"
             alt="Left Button"
             className="w-18"
           />
@@ -745,7 +745,7 @@ export default function ReceiptPage() {
           }}
         >
           <img
-            src="/images/BT-Scan Qr code.png"
+            src="/images/BT-Scan-Qr-code.png"
             alt="Right Button"
             className="w-18"
           />

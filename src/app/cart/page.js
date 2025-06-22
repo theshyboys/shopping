@@ -149,7 +149,7 @@ export default function CartPage() {
                       onClick={handleCheckout}
                       className="w-full text-white rounded-md "
                     >
-                      <img src="\images\BT-Check out.png" />
+                      <img src="\images\BT-Check-out.png" />
                     </button>
                   </div>
                 </div>

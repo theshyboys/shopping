@@ -201,7 +201,7 @@ export default function ProductPage({ params }) {
         )}
 
         <img
-          src="/images/Footer Bar.png"
+          src="/images/Footer-Bar.png"
           alt="Background"
           className="px-0 py-0 h-30 fixed bottom-0 left-1/2 transform -translate-x-1/2 z-3"
         />
@@ -212,12 +212,12 @@ export default function ProductPage({ params }) {
               onClick={handleAddToCart}
               className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3"
             >
-              <img src="\images\BT-Add to cart.png" alt="Click Me" />
+              <img src="\images\BT-Add-to-cart.png" alt="Click Me" />
             </button>
           </div>
         ) : (
           <button className=" px-6 py-2 w-90 fixed bottom-6 left-1/2 transform -translate-x-1/2 z-3">
-            <img src="\images\BT-Already in cart.png" alt="Click Me" />
+            <img src="\images\BT-Already-in-cart.png" alt="Click Me" />
           </button>
         )}
       </div>
